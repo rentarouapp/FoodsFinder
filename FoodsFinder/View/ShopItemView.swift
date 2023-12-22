@@ -23,6 +23,6 @@ struct ShopItemView: View {
 
 struct ShopItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopItemView(shop: Mock.shop)
+        ShopItemView(shop: Mock.shop1)
     }
 }

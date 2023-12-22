@@ -8,5 +8,6 @@
 import Foundation
 
 class Mock {
-    static let shop = Shop(id: "0", name: "テスト1")
+    static let shop1 = Shop(id: "0", name: "テスト1")
+    static let shop2 = Shop(id: "1", name: "テスト1")
 }

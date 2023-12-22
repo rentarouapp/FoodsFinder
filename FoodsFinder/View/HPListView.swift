@@ -12,9 +12,8 @@ struct HPListView: View {
     @State private var searchText: String = ""
     
     private let shops: [Shop] = [
-        Mock.shop,
-        Mock.shop,
-        Mock.shop
+        Mock.shop1,
+        Mock.shop2
     ]
     
     var body: some View {
@@ -32,10 +31,10 @@ struct HPListView: View {
                     ShopItemView(shop: shop)
                 }
             }
-            .listStyle(.plain)
-            .navigationTitle("お店を探す")
-            .navigationBarTitleDisplayMode(.large)
         }
+        .listStyle(.plain)
+        .navigationTitle("お店を探す")
+        .navigationBarTitleDisplayMode(.large)
         .searchable(text: $searchText, prompt: "なんでも入力してね")
     }
 }
