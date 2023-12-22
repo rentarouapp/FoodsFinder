@@ -23,6 +23,7 @@
 		B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C632662B35D1BB006B1E4E /* APIService.swift */; };
 		B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C632682B35D1F9006B1E4E /* APIRequest.swift */; };
 		B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326A2B35D89E006B1E4E /* Constants.swift */; };
+		B7C6326D2B35DA86006B1E4E /* HPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B7C632662B35D1BB006B1E4E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		B7C632682B35D1F9006B1E4E /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		B7C6326A2B35D89E006B1E4E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		B78BED4B2B35C8A4005A05C6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
 				B7C6325B2B35CBF7006B1E4E /* ShopInfo.swift in Sources */,
 				B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */,
+				B7C6326D2B35DA86006B1E4E /* HPViewModel.swift in Sources */,
 				B7C632592B35CB4C006B1E4E /* ShopDescriptionView.swift in Sources */,
 				B7C632622B35CE82006B1E4E /* Mock.swift in Sources */,
 				B7C6325D2B35CCD6006B1E4E /* ShopItemView.swift in Sources */,

@@ -19,6 +19,7 @@ final class APIService: APIServiceType {
         self.baseURLString = baseURLString
     }
     
+    // https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?keyword=西東京&key=ee6d7b1b10b24aef&format=json
     func request<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : APIRequestType {
         guard let pathURL = URL(string: request.path, relativeTo: URL(string: self.baseURLString)) else {
             return Fail(error: APIServiceError.invalidURL).eraseToAnyPublisher()

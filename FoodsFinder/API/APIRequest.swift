@@ -22,17 +22,14 @@ struct ShopInfoRequest: APIRequestType {
     }
     var queryItems: [URLQueryItem]? {
         return [
-            .init(name: "", value: self.searchWord),
-            .init(name: "", value: "\(self.maxResults)")
+            .init(name: "keyword", value: self.keyword),
+            .init(name: "key", value: Constants.hpApiKey),
+            .init(name: "format", value: "json")
         ]
     }
-    
-    public let searchWord: String
-    public let maxResults: Int
-    
-    init(searchWord: String, maxResults: Int) {
-        self.searchWord = searchWord
-        self.maxResults = maxResults
+    public let keyword: String
+    init(keyword: String) {
+        self.keyword = keyword
     }
     
 }
