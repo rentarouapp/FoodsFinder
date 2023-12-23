@@ -13,7 +13,7 @@ final class HPViewModel: NSObject, ObservableObject {
     @Published var isFetching: Bool = false
     
     // EmptyViewの表示内容
-    //@Published var type: BookSearchEmptyViewType = .initial
+    @Published var type: EmptyViewType = .initial
     // Alert
     //@Published var alertViewModel = AlertViewModel()
     
@@ -42,7 +42,7 @@ final class HPViewModel: NSObject, ObservableObject {
                 self.isFetching = false
                 self.shopInfoResponse = value
                 if self.shopInfoResponse.results?.shop?.count ?? 0 == 0 {
-                    //self.type = .noResult
+                    self.type = .noResult
                 }
             })
             .store(in: &cancellables)
@@ -73,7 +73,7 @@ final class HPViewModel: NSObject, ObservableObject {
                     self.isFetching = false
                     self.shopInfoResponse = response
                     if self.shopInfoResponse.results?.shop?.count ?? 0 == 0 {
-                        //self.type = .noResult
+                        self.type = .noResult
                     }
                 }),
             // エラー
@@ -86,13 +86,13 @@ final class HPViewModel: NSObject, ObservableObject {
     }
     
     // キーボードの検索ボタンが押されたときにView側から呼び出す
-    func resumeSearch(searchWord: String, maxResults: Int) {
+    func resumeSearch(keyword: String) {
         self.cancellables.forEach { $0.cancel() }
         self.isFetching = true
         self.bind()
         self.shopInfoResponse = .init(results: nil)
         
-        let request: ShopInfoRequest = ShopInfoRequest(keyword: searchWord)
+        let request: ShopInfoRequest = ShopInfoRequest(keyword: keyword)
         // 1: もう一つPublisherを挟んで入力値を流すケース
         self.onShopSearchSubject.send(request)
         // 2: URLSession.DataTaskPublisherに直接値を入れるケース

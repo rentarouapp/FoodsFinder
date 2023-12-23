@@ -24,6 +24,7 @@
 		B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C632682B35D1F9006B1E4E /* APIRequest.swift */; };
 		B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326A2B35D89E006B1E4E /* Constants.swift */; };
 		B7C6326D2B35DA86006B1E4E /* HPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */; };
+		B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326E2B3674B9006B1E4E /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		B7C632682B35D1F9006B1E4E /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		B7C6326A2B35D89E006B1E4E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPViewModel.swift; sourceTree = "<group>"; };
+		B7C6326E2B3674B9006B1E4E /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				B7C632582B35CB4C006B1E4E /* ShopDescriptionView.swift */,
 				B7C6325C2B35CCD6006B1E4E /* ShopItemView.swift */,
 				B7C632632B35CF0D006B1E4E /* FavoriteListView.swift */,
+				B7C6326E2B3674B9006B1E4E /* EmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7C632642B35CF0D006B1E4E /* FavoriteListView.swift in Sources */,
+				B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */,
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
 				B7C6325B2B35CBF7006B1E4E /* ShopInfo.swift in Sources */,
 				B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */,

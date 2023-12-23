@@ -18,7 +18,7 @@ struct ShopInfoRequest: APIRequestType {
     typealias Response = ShopInfoResponse
     
     var path: String {
-        return ""
+        return Constants.hpSearchURLBaseString
     }
     var queryItems: [URLQueryItem]? {
         return [

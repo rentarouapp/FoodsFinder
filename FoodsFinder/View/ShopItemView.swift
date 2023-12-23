@@ -12,12 +12,14 @@ struct ShopItemView: View {
     var shop: Shop
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        HStack {
+            Text("🍺")
+                .font(.system(size: 60, weight: .black, design: .default))
+            Text(shop.name ?? "")
+                .font(.system(size: 20, weight: .black, design: .default))
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
     }
 }
 
