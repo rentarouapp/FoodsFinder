@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 final class HPViewModel: NSObject, ObservableObject {
-    @Published var shopInfoResponse: ShopInfoResponse = .init(results: nil)
+    @Published var shopInfoResponse: ShopInfoResponse = .init(result: nil)
     @Published var isFetching: Bool = false
     
     // EmptyViewの表示内容
@@ -41,7 +41,7 @@ final class HPViewModel: NSObject, ObservableObject {
                 guard let self = self else { return }
                 self.isFetching = false
                 self.shopInfoResponse = value
-                if self.shopInfoResponse.results?.shop?.count ?? 0 == 0 {
+                if self.shopInfoResponse.result?.shops?.count ?? 0 == 0 {
                     self.type = .noResult
                 }
             })
@@ -72,7 +72,7 @@ final class HPViewModel: NSObject, ObservableObject {
                     guard let self = self else { return }
                     self.isFetching = false
                     self.shopInfoResponse = response
-                    if self.shopInfoResponse.results?.shop?.count ?? 0 == 0 {
+                    if self.shopInfoResponse.result?.shops?.count ?? 0 == 0 {
                         self.type = .noResult
                     }
                 }),
@@ -90,7 +90,7 @@ final class HPViewModel: NSObject, ObservableObject {
         self.cancellables.forEach { $0.cancel() }
         self.isFetching = true
         self.bind()
-        self.shopInfoResponse = .init(results: nil)
+        self.shopInfoResponse = .init(result: nil)
         
         let request: ShopInfoRequest = ShopInfoRequest(keyword: keyword)
         // 1: もう一つPublisherを挟んで入力値を流すケース
@@ -103,7 +103,7 @@ final class HPViewModel: NSObject, ObservableObject {
     func cancel() {
         self.isFetching = false
         self.cancellables.forEach { $0.cancel() }
-        self.shopInfoResponse = .init(results: nil)
+        self.shopInfoResponse = .init(result: nil)
     }
     
     // API通信のエラーをさばく
