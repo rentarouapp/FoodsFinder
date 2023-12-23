@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Reachability
 
 final class HPViewModel: NSObject, ObservableObject {
     @Published var shopInfoResponse: ShopInfoResponse = .init(result: nil)
@@ -108,10 +109,10 @@ final class HPViewModel: NSObject, ObservableObject {
     
     // API通信のエラーをさばく
     private func handleAPIError(error: APIServiceError) {
-//        do {
-//            let reachability = try Reachability()
-//            if reachability.connection == .unavailable {
-//                // インターネットに接続していない場合には未接続アラートを出す
+        do {
+            let reachability = try Reachability()
+            if reachability.connection == .unavailable {
+                // インターネットに接続していない場合には未接続アラートを出す
 //                self.alertViewModel.alertEntity.show(alertButtonType: .doubleButton,
 //                                                     title: Constants.notNetWorking,
 //                                                     message: Constants.notNetWorkingMessage,
@@ -123,11 +124,11 @@ final class HPViewModel: NSObject, ObservableObject {
 //                        UIApplication.shared.open(settingURL)
 //                    }
 //                })
-//                return
-//            }
-//        } catch {
-//            print("Reachability_failed")
-//        }
+                return
+            }
+        } catch {
+            print("Reachability_failed")
+        }
         switch error {
         case .invalidURL:
             print("invalidURL")
