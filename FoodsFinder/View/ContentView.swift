@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isPresentLoginView = false
+    
     var body: some View {
         TabView {
             HPListView()
@@ -24,6 +27,12 @@ struct ContentView: View {
                         Text("お気に入り")
                     }
                 }.tag(2)
+        }
+        .onAppear {
+            isPresentLoginView = true
+        }
+        .fullScreenCover(isPresented: $isPresentLoginView) {
+            LoginView()
         }
     }
 }
