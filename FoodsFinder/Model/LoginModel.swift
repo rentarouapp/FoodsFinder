@@ -8,13 +8,20 @@
 import Foundation
 import FirebaseAuth
 import FirebaseCore
+import AuthenticationServices
+import SwiftUI
 
 class LoginModel {
     
-    static let shared = LoginModel()
     private init() {}
     
-    private let auth = Auth.auth()
+    static let shared = LoginModel()
+    let auth = Auth.auth()
     
+    let defaultName = "ゲスト"
+    
+    public func currentUser() -> User? {
+        return auth.currentUser
+    }
     
 }

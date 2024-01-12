@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var isPresentLoginView = false
+    //@State private var isPresentLoginView = false
     
     var body: some View {
         TabView {
-            HPListView()
+            //HPListView()
+            LoginView()
                 .tabItem {
                     VStack {
                         Image(systemName: "magnifyingglass")
@@ -28,12 +29,12 @@ struct ContentView: View {
                     }
                 }.tag(2)
         }
-        .onAppear {
-            isPresentLoginView = true
-        }
-        .fullScreenCover(isPresented: $isPresentLoginView) {
-            LoginView()
-        }
+//        .onAppear {
+//            isPresentLoginView = true
+//        }
+//        .fullScreenCover(isPresented: $isPresentLoginView) {
+//            LoginView()
+//        }
     }
 }
 
