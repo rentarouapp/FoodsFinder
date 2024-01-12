@@ -20,7 +20,7 @@ struct LoginView: View {
             NavigationStack {
                 ZStack {
                     VStack(spacing: 18) {
-                        Text("🍺ログイン画面🍣")
+                        Text("🍺ログインしてね🍣")
                             .frame(height: 100)
                             .font(.system(size: 30)).bold()
                         
@@ -59,20 +59,35 @@ struct LoginView: View {
                                 .cornerRadius(8)
                         })
                         
-                        Button(action: {
-                            dismiss()
-                        }, label: {
-                            Text("ログインせずに使う")
-                                .fontWeight(.semibold)
-                                .frame(width: uiWidth(width: geometry.size.width), height: 56)
-                                .foregroundColor(.blue)
-                                .background(Color(.white))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.blue, lineWidth: 1)
-                                )
-                        })
-                        
+                        if focusedField == nil {
+                            Button(action: {
+                                dismiss()
+                            }, label: {
+                                Text("新規会員登録")
+                                    .fontWeight(.semibold)
+                                    .frame(width: uiWidth(width: geometry.size.width), height: 56)
+                                    .foregroundColor(.blue)
+                                    .background(Color(.white))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.blue, lineWidth: 1)
+                                    )
+                            })
+                            
+                            Button(action: {
+                                dismiss()
+                            }, label: {
+                                Text("ログインせずに使う")
+                                    .fontWeight(.semibold)
+                                    .frame(width: uiWidth(width: geometry.size.width), height: 56)
+                                    .foregroundColor(.black)
+                                    .background(Color(.white))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(.black, lineWidth: 1)
+                                    )
+                            })
+                        }
                         Spacer()
                             .frame(height: 20)
                     }
@@ -87,7 +102,7 @@ struct LoginView: View {
     
     private func uiWidth(width: CGFloat) -> CGFloat {
         let sideInset: CGFloat = 24
-        return width - sideInset*2
+        return abs(width - sideInset*2)
     }
 }
 

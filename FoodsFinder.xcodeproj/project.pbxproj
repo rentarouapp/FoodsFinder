@@ -33,6 +33,8 @@
 		B7C6326D2B35DA86006B1E4E /* HPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */; };
 		B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326E2B3674B9006B1E4E /* EmptyView.swift */; };
 		B7E3DB812B3EBE2500903FA1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB802B3EBE2500903FA1 /* LoginView.swift */; };
+		B7E3DB832B3F1B9800903FA1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */; };
+		B7E3DB852B3F1CD500903FA1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPViewModel.swift; sourceTree = "<group>"; };
 		B7C6326E2B3674B9006B1E4E /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		B7E3DB802B3EBE2500903FA1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */,
+				B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			children = (
 				B7C6325A2B35CBF7006B1E4E /* ShopInfo.swift */,
 				B7C632612B35CE82006B1E4E /* Mock.swift */,
+				B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,9 +381,11 @@
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
 				B7C6325B2B35CBF7006B1E4E /* ShopInfo.swift in Sources */,
 				B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */,
+				B7E3DB852B3F1CD500903FA1 /* LoginModel.swift in Sources */,
 				B7C6326D2B35DA86006B1E4E /* HPViewModel.swift in Sources */,
 				B7C632592B35CB4C006B1E4E /* ShopDescriptionView.swift in Sources */,
 				B7C632622B35CE82006B1E4E /* Mock.swift in Sources */,
+				B7E3DB832B3F1B9800903FA1 /* LoginViewModel.swift in Sources */,
 				B7E3DB812B3EBE2500903FA1 /* LoginView.swift in Sources */,
 				B7C6325D2B35CCD6006B1E4E /* ShopItemView.swift in Sources */,
 				B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */,
@@ -553,8 +561,8 @@
 				INFOPLIST_FILE = FoodsFinder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -584,8 +592,8 @@
 				INFOPLIST_FILE = FoodsFinder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
