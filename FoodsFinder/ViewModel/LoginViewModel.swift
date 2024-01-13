@@ -11,7 +11,7 @@ import FirebaseAuth
 
 final class LoginViewModel: ObservableObject {
     
-    @Published var error: NSError?
+    @Published var loginProcessState = LoginProcessState()
     
     private init() {}
     static let shared = LoginViewModel()
@@ -20,18 +20,33 @@ final class LoginViewModel: ObservableObject {
     
     /// 新規登録
     func createUser(email: String, password: String, name: String) {
+        loginProcessState.isFetching = true
         loginModel.auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard let self else { return }
-            if let user = result?.user {
-                let request = user.createProfileChangeRequest()
-                request.displayName = name
-                request.commitChanges() { [weak self] error in
-                    if error == nil {
-                        // 仮登録が完了したよ
-                        print("仮登録完了画面へ")
-                    }
+            self.loginProcessState.isFetching = false
+            if let error = error as NSError?,
+               let errorCode = AuthErrorCode.Code(rawValue: error._code) {
+                switch errorCode {
+                case .invalidEmail:
+                    //メールアドレスの形式によるエラー
+                    print("signup_mail_error")
+                case .weakPassword:
+                    //パスワードが脆弱(6文字以下)
+                    print("signup_pass_error")
+                case .emailAlreadyInUse:
+                    //メールアドレスが既に登録されている
+                    print("signup_already_error")
+                case .networkError:
+                    //通信エラー
+                    print("signup_network_error")
+                default:
+                    //その他エラー
+                    print("signup_other_error")
                 }
+                return
             }
+            self.loginProcessState.isSucceed = true
+            print("仮登録完了画面へ")
         }
     }
     
