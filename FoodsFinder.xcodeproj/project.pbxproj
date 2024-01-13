@@ -39,6 +39,8 @@
 		B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417512B527FFA002A1C24 /* PKHUDView.swift */; };
 		B7D417542B5280EB002A1C24 /* PKHUDModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */; };
 		B7D417582B52845C002A1C24 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417572B52845C002A1C24 /* ViewExtension.swift */; };
+		B7D4175B2B5289A2002A1C24 /* CustomAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175A2B5289A2002A1C24 /* CustomAlertModifier.swift */; };
+		B7D4175D2B5289B3002A1C24 /* CustomAlertEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */; };
 		B7E3DB812B3EBE2500903FA1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB802B3EBE2500903FA1 /* LoginView.swift */; };
 		B7E3DB832B3F1B9800903FA1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */; };
 		B7E3DB852B3F1CD500903FA1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */; };
@@ -92,6 +94,8 @@
 		B7D417512B527FFA002A1C24 /* PKHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDView.swift; sourceTree = "<group>"; };
 		B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDModifier.swift; sourceTree = "<group>"; };
 		B7D417572B52845C002A1C24 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		B7D4175A2B5289A2002A1C24 /* CustomAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertModifier.swift; sourceTree = "<group>"; };
+		B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertEntity.swift; sourceTree = "<group>"; };
 		B7E3DB802B3EBE2500903FA1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				B78BED4B2B35C8A4005A05C6 /* ViewModel */,
 				B78BED4A2B35C89C005A05C6 /* View */,
 				B7D417482B5233E5002A1C24 /* Navigation */,
+				B7D417592B528992002A1C24 /* Alert */,
 				B7D417502B527FE0002A1C24 /* PKHUD */,
 				B7D4174D2B524DA6002A1C24 /* Service */,
 				B7C632652B35D1A4006B1E4E /* API */,
@@ -275,6 +280,15 @@
 				B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */,
 			);
 			path = PKHUD;
+			sourceTree = "<group>";
+		};
+		B7D417592B528992002A1C24 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				B7D4175A2B5289A2002A1C24 /* CustomAlertModifier.swift */,
+				B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +441,8 @@
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
 				B7C6325B2B35CBF7006B1E4E /* ShopInfo.swift in Sources */,
 				B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */,
+				B7D4175B2B5289A2002A1C24 /* CustomAlertModifier.swift in Sources */,
+				B7D4175D2B5289B3002A1C24 /* CustomAlertEntity.swift in Sources */,
 				B7D417582B52845C002A1C24 /* ViewExtension.swift in Sources */,
 				B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */,
 				B7E3DB852B3F1CD500903FA1 /* LoginModel.swift in Sources */,
