@@ -149,6 +149,7 @@
 				B78BED4B2B35C8A4005A05C6 /* ViewModel */,
 				B78BED4A2B35C89C005A05C6 /* View */,
 				B7D417482B5233E5002A1C24 /* Navigation */,
+				B7D4174D2B524DA6002A1C24 /* Service */,
 				B7C632652B35D1A4006B1E4E /* API */,
 				B7C6325E2B35CE40006B1E4E /* Util */,
 				B78BED242B35C7BF005A05C6 /* Assets.xcassets */,
@@ -250,6 +251,13 @@
 				B7D417492B52341B002A1C24 /* NavigationPath.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		B7D4174D2B524DA6002A1C24 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
