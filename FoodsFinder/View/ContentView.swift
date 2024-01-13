@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var showSheet: Bool = true
+    
     var body: some View {
-        LoginView()
-        //HPView()
+        HPView()
+            .sheet(isPresented: $showSheet) {
+                LoginView()
+            }
     }
 }
 

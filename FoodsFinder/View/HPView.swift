@@ -25,6 +25,13 @@ struct HPView: View {
                         Text("お気に入り")
                     }
                 }.tag(2)
+            SettingView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "gearshape")
+                        Text("設定")
+                    }
+                }.tag(3)
         }
     }
 }

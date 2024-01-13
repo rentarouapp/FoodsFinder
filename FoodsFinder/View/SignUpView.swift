@@ -66,7 +66,7 @@ struct SignUpView: View {
                     Button(action: {
                         //dismiss()
                     }, label: {
-                        Text("これで登録する")
+                        Text("この情報で登録する")
                             .fontWeight(.semibold)
                             .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
                             .foregroundColor(.white)

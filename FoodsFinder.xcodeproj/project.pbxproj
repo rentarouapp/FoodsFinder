@@ -34,6 +34,8 @@
 		B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326E2B3674B9006B1E4E /* EmptyView.swift */; };
 		B7D417452B5170A3002A1C24 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417442B5170A3002A1C24 /* SignUpView.swift */; };
 		B7D417472B5190EF002A1C24 /* HPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417462B5190EF002A1C24 /* HPView.swift */; };
+		B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417492B52341B002A1C24 /* NavigationPath.swift */; };
+		B7D4174C2B524148002A1C24 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4174B2B524148002A1C24 /* SettingView.swift */; };
 		B7E3DB812B3EBE2500903FA1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB802B3EBE2500903FA1 /* LoginView.swift */; };
 		B7E3DB832B3F1B9800903FA1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */; };
 		B7E3DB852B3F1CD500903FA1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */; };
@@ -82,6 +84,8 @@
 		B7C6326E2B3674B9006B1E4E /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		B7D417442B5170A3002A1C24 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		B7D417462B5190EF002A1C24 /* HPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPView.swift; sourceTree = "<group>"; };
+		B7D417492B52341B002A1C24 /* NavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPath.swift; sourceTree = "<group>"; };
+		B7D4174B2B524148002A1C24 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B7E3DB802B3EBE2500903FA1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				B78BED4C2B35C8B0005A05C6 /* Model */,
 				B78BED4B2B35C8A4005A05C6 /* ViewModel */,
 				B78BED4A2B35C89C005A05C6 /* View */,
+				B7D417482B5233E5002A1C24 /* Navigation */,
 				B7C632652B35D1A4006B1E4E /* API */,
 				B7C6325E2B35CE40006B1E4E /* Util */,
 				B78BED242B35C7BF005A05C6 /* Assets.xcassets */,
@@ -191,6 +196,7 @@
 				B7C6326E2B3674B9006B1E4E /* EmptyView.swift */,
 				B7E3DB802B3EBE2500903FA1 /* LoginView.swift */,
 				B7D417442B5170A3002A1C24 /* SignUpView.swift */,
+				B7D4174B2B524148002A1C24 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +242,14 @@
 				B7C632682B35D1F9006B1E4E /* APIRequest.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		B7D417482B5233E5002A1C24 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B7D417492B52341B002A1C24 /* NavigationPath.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7C632642B35CF0D006B1E4E /* FavoriteListView.swift in Sources */,
+				B7D4174C2B524148002A1C24 /* SettingView.swift in Sources */,
 				B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */,
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
 				B7C6325B2B35CBF7006B1E4E /* ShopInfo.swift in Sources */,
@@ -397,6 +412,7 @@
 				B7D417452B5170A3002A1C24 /* SignUpView.swift in Sources */,
 				B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */,
 				B7D417472B5190EF002A1C24 /* HPView.swift in Sources */,
+				B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */,
 				B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */,
 				B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */,
 				B78BED4E2B35CA56005A05C6 /* HPListView.swift in Sources */,

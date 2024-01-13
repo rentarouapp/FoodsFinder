@@ -34,6 +34,7 @@ struct HPListView: View {
             }
             .navigationBarTitleDisplayMode(.large)
             .navigationTitle("お店を探す")
+            .navigationBarHidden(false)
         }
         .listStyle(.plain)
         .searchable(text: $searchText, prompt: "なんでも入力してね")

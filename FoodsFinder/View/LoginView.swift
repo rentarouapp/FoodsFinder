@@ -13,8 +13,12 @@ struct LoginView: View {
     @State var password:String = ""
     @FocusState private var focusedField: Field?
     
+    @Environment(\.dismiss) private var dismiss
+    
+    @State var path: [String] = []
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ZStack {
                 VStack(spacing: 18) {
                     Text("🍺ログインしてね🍣")
@@ -81,9 +85,9 @@ struct LoginView: View {
                             )
                     }
                     
-                    NavigationLink {
-                        HPView()
-                    } label: {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
                         Text("ログインせずに使う")
                             .fontWeight(.semibold)
                             .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
@@ -93,7 +97,7 @@ struct LoginView: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(.black, lineWidth: 1)
                             )
-                    }
+                    })
                     Spacer()
                         .frame(height: 20)
                 }
