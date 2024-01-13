@@ -113,8 +113,10 @@ struct LoginView: View {
 }
 
 enum Field: Hashable {
+    case name
     case mail
     case password
+    case confirmPassword
 }
 
 struct LoginView_Previews: PreviewProvider {

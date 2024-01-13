@@ -23,10 +23,11 @@ struct SignUpView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                Text("無料なので、会員登録しましょう")
-                    .frame(height: 100)
-                    .font(.system(size: 22).bold())
-                
+                if focusedField == nil {
+                    Text("無料なので、会員登録しましょう")
+                        .frame(height: 100)
+                        .font(.system(size: 22).bold())
+                }
                 Text("※ 任意")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 16))
@@ -38,7 +39,7 @@ struct SignUpView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(.gray, lineWidth: 1)
                     )
-                    .focused($focusedField, equals: .mail)
+                    .focused($focusedField, equals: .name)
                 
                 Spacer().frame(height: 18)
                 
@@ -81,7 +82,7 @@ struct SignUpView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(.gray, lineWidth: 1)
                     )
-                    .focused($focusedField, equals: .password)
+                    .focused($focusedField, equals: .confirmPassword)
                 
             }
             .toolbar {
