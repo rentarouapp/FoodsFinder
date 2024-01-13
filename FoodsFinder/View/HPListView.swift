@@ -55,6 +55,7 @@ struct HPListView: View {
             }
         }
         .focused(self.$focus)
+        .PKHUD(isPresented: $hpViewModel.isFetching, HUDContent: .progress)
     }
 }
 
