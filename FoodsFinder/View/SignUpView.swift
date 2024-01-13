@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SignUpView: View {
-    
-    // ViewModel
+    // Login
     @StateObject private var loginViewModel = LoginViewModel.shared
+    // Alert
+    @StateObject var alertViewModel = AlertViewModel()
     
     @State var name: String = ""
     @State var email:String = ""
@@ -21,12 +22,16 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack {
-            VStack(spacing: 18) {
+            VStack(spacing: 0) {
                 Text("無料なので、会員登録しましょう")
                     .frame(height: 100)
-                    .font(.system(size: 22)).bold()
+                    .font(.system(size: 22).bold())
                 
-                TextField("ユーザ名（任意）", text: $name)
+                Text("※ 任意")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 16))
+                    .foregroundColor(.blue)
+                TextField("ユーザ名", text: $name)
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
                     .overlay(
@@ -35,6 +40,12 @@ struct SignUpView: View {
                     )
                     .focused($focusedField, equals: .mail)
                 
+                Spacer().frame(height: 18)
+                
+                Text("※ 必須")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 16))
+                    .foregroundColor(.red)
                 TextField("メールアドレス", text: $email)
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
@@ -43,7 +54,12 @@ struct SignUpView: View {
                             .stroke(.gray, lineWidth: 1)
                     )
                     .focused($focusedField, equals: .mail)
+                Spacer().frame(height: 18)
                 
+                Text("※ 必須")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 16))
+                    .foregroundColor(.red)
                 TextField("パスワード", text: $password)
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
@@ -52,7 +68,12 @@ struct SignUpView: View {
                             .stroke(.gray, lineWidth: 1)
                     )
                     .focused($focusedField, equals: .password)
+                Spacer().frame(height: 18)
                 
+                Text("※ 必須")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 16))
+                    .foregroundColor(.red)
                 TextField("パスワード（確認用）", text: $confirmPassword)
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
@@ -92,6 +113,7 @@ struct SignUpView: View {
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
         }
+        .customAlert(for: $alertViewModel.alertEntity)
     }
     
     private func uiWidth(width: CGFloat) -> CGFloat {
@@ -100,9 +122,17 @@ struct SignUpView: View {
     }
     
     private func createUser() {
-        
-        
-        loginViewModel.createUser(email: email, password: password, name: name)
+        if let alertEntity = ValidationInteractor.singleButtonAlertEntityWithSignUpValidation(
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword
+        ) {
+            // 入力不備があったらダイアログ表示
+            alertViewModel.alertEntity = alertEntity
+            alertViewModel.alertEntity.show()
+            return
+        }
+        //loginViewModel.createUser(email: email, password: password, name: name)
     }
 }
 

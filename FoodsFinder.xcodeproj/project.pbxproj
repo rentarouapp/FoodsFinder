@@ -41,6 +41,8 @@
 		B7D417582B52845C002A1C24 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417572B52845C002A1C24 /* ViewExtension.swift */; };
 		B7D4175B2B5289A2002A1C24 /* CustomAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175A2B5289A2002A1C24 /* CustomAlertModifier.swift */; };
 		B7D4175D2B5289B3002A1C24 /* CustomAlertEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */; };
+		B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */; };
+		B7D417622B528D1D002A1C24 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417612B528D1D002A1C24 /* AlertViewModel.swift */; };
 		B7E3DB812B3EBE2500903FA1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB802B3EBE2500903FA1 /* LoginView.swift */; };
 		B7E3DB832B3F1B9800903FA1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */; };
 		B7E3DB852B3F1CD500903FA1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */; };
@@ -96,6 +98,8 @@
 		B7D417572B52845C002A1C24 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		B7D4175A2B5289A2002A1C24 /* CustomAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertModifier.swift; sourceTree = "<group>"; };
 		B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertEntity.swift; sourceTree = "<group>"; };
+		B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationInteractor.swift; sourceTree = "<group>"; };
+		B7D417612B528D1D002A1C24 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
 		B7E3DB802B3EBE2500903FA1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				B78BED4B2B35C8A4005A05C6 /* ViewModel */,
 				B78BED4A2B35C89C005A05C6 /* View */,
 				B7D417482B5233E5002A1C24 /* Navigation */,
+				B7D4175E2B528BC1002A1C24 /* Interactor */,
 				B7D417592B528992002A1C24 /* Alert */,
 				B7D417502B527FE0002A1C24 /* PKHUD */,
 				B7D4174D2B524DA6002A1C24 /* Service */,
@@ -220,6 +225,7 @@
 			children = (
 				B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */,
 				B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */,
+				B7D417612B528D1D002A1C24 /* AlertViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -289,6 +295,14 @@
 				B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		B7D4175E2B528BC1002A1C24 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,6 +452,7 @@
 				B7C632642B35CF0D006B1E4E /* FavoriteListView.swift in Sources */,
 				B7D4174C2B524148002A1C24 /* SettingView.swift in Sources */,
 				B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */,
+				B7D417622B528D1D002A1C24 /* AlertViewModel.swift in Sources */,
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
 				B7C6325B2B35CBF7006B1E4E /* ShopInfo.swift in Sources */,
 				B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */,
@@ -456,6 +471,7 @@
 				B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */,
 				B7D417472B5190EF002A1C24 /* HPView.swift in Sources */,
 				B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */,
+				B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */,
 				B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */,
 				B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */,
 				B78BED4E2B35CA56005A05C6 /* HPListView.swift in Sources */,

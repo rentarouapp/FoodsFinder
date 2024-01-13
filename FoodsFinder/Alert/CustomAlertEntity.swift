@@ -16,26 +16,31 @@ struct CustomAlertEntity {
     }
     
     var isShowingAlert: Bool = false
-    var buttonType: ButtonType = .singleButton
-    var title: String = ""
-    var message: String = ""
-    var positiveTitle: String = ""
-    var negativeTitle: String = ""
-    var buttonAction: () -> Void = {}
     
-    mutating func show(buttonType: ButtonType,
-                       title: String,
-                       message: String,
-                       positiveTitle: String = "",
-                       negativeTitle: String,
-                       buttonAction: @escaping () -> Void = {}) {
-        
+    var buttonType: ButtonType
+    var title: String
+    var message: String
+    var positiveTitle: String
+    var negativeTitle: String
+    var buttonAction: () -> Void
+    
+    init(
+        buttonType: ButtonType,
+        title: String,
+        message: String,
+        positiveTitle: String,
+        negativeTitle: String,
+        buttonAction: @escaping () -> Void
+    ) {
         self.buttonType = buttonType
         self.title = title
         self.message = message
         self.positiveTitle = positiveTitle
         self.negativeTitle = negativeTitle
         self.buttonAction = buttonAction
+    }
+    
+    mutating func show() {
         self.isShowingAlert = true
     }
     
