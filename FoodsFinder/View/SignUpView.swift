@@ -21,7 +21,7 @@ struct SignUpView: View {
                         .frame(height: 100)
                         .font(.system(size: 22)).bold()
                     
-                    TextField("email", text: $email)
+                    TextField("メールアドレス", text: $email)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
                         .overlay(
@@ -30,7 +30,16 @@ struct SignUpView: View {
                         )
                         .focused($focusedField, equals: .mail)
                     
-                    TextField("password", text: $password)
+                    TextField("パスワード", text: $password)
+                        .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
+                        .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(.gray, lineWidth: 1)
+                        )
+                        .focused($focusedField, equals: .password)
+                    
+                    TextField("パスワード（確認用）", text: $password)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
                         .overlay(
@@ -64,7 +73,10 @@ struct SignUpView: View {
                             .background(.blue)
                             .cornerRadius(8)
                     })
+                    Spacer()
+                        .frame(height: 20)
                 }
+                .ignoresSafeArea(.keyboard, edges: .bottom)
             }
         }
     }

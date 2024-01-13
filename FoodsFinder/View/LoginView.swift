@@ -21,7 +21,7 @@ struct LoginView: View {
                         .frame(height: 100)
                         .font(.system(size: 30)).bold()
                     
-                    TextField("email", text: $email)
+                    TextField("メールアドレス", text: $email)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
                         .overlay(
@@ -30,7 +30,7 @@ struct LoginView: View {
                         )
                         .focused($focusedField, equals: .mail)
                     
-                    TextField("password", text: $password)
+                    TextField("パスワード", text: $password)
                         .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                         .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
                         .overlay(
@@ -81,9 +81,9 @@ struct LoginView: View {
                             )
                     }
                     
-                    Button(action: {
-                        //dismiss()
-                    }, label: {
+                    NavigationLink {
+                        HPView()
+                    } label: {
                         Text("ログインせずに使う")
                             .fontWeight(.semibold)
                             .frame(width: uiWidth(width: UIScreen.main.bounds.width), height: 50)
@@ -93,10 +93,11 @@ struct LoginView: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(.black, lineWidth: 1)
                             )
-                    })
+                    }
                     Spacer()
                         .frame(height: 20)
                 }
+                .ignoresSafeArea(.keyboard, edges: .bottom)
             }
         }
     }

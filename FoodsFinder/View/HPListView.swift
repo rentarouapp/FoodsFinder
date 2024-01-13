@@ -16,8 +16,6 @@ struct HPListView: View {
 
     
     var body: some View {
-        
-        //let shops = [Mock.shop1, Mock.shop2] // Mock
         let shops = self.hpViewModel.shopInfoResponse.result?.shops ?? []
         
         NavigationStack {
