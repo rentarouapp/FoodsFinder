@@ -18,6 +18,8 @@ struct SignUpView: View {
     @State var password:String = ""
     @State var confirmPassword: String = ""
     
+    @Environment(\.dismiss) private var dismiss
+    
     @FocusState private var focusedField: Field?
     
     var body: some View {
@@ -115,6 +117,8 @@ struct SignUpView: View {
             .ignoresSafeArea(.keyboard, edges: .bottom)
         }
         .customAlert(for: $alertViewModel.alertEntity)
+        .customAlert2(for: $loginViewModel.alertViewModel.alertEntity)
+        .PKHUD(isPresented: $loginViewModel.isFetching, HUDContent: .progress)
     }
     
     private func uiWidth(width: CGFloat) -> CGFloat {
@@ -133,7 +137,10 @@ struct SignUpView: View {
             alertViewModel.alertEntity.show()
             return
         }
-        //loginViewModel.createUser(email: email, password: password, name: name)
+        loginViewModel.alertCompletion = {
+            dismiss()
+        }
+        loginViewModel.createUser(email: email, password: password, name: name)
     }
 }
 

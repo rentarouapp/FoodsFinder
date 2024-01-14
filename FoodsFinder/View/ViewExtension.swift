@@ -18,4 +18,8 @@ extension View {
     func customAlert(for alertEntity: Binding<CustomAlertEntity>) -> some View {
         modifier(CustomAlertModifier(alertEntity: alertEntity))
     }
+    // アラート表示2
+    func customAlert2(for alertEntity: Binding<CustomAlertEntity>) -> some View {
+        modifier(CustomAlertModifier(alertEntity: alertEntity))
+    }
 }

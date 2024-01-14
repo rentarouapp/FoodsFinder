@@ -14,32 +14,19 @@ class ValidationInteractor {
         
         if email.isEmpty || password.isEmpty || confirmPassword.isEmpty {
             // いずれか空文字
-            return inputValidationAlertEntityWithMessage("・メールアドレス\n・パスワード\n・確認用パスワード\n\nは必須項目です。")
+            return AlertService.inputValidationAlertEntityWithMessage("・メールアドレス\n・パスワード\n・確認用パスワード\n\nは必須項目です。")
         }
         if password != confirmPassword {
-            return inputValidationAlertEntityWithMessage("パスワードと確認用パスワードの内容が違います。")
+            return AlertService.inputValidationAlertEntityWithMessage("パスワードと確認用パスワードの内容が違います。")
         }
         if password.count < 6 {
-            return inputValidationAlertEntityWithMessage("パスワードは6文字以上でお願いします。")
+            return AlertService.inputValidationAlertEntityWithMessage("パスワードは6文字以上でお願いします。")
         }
         if isValidEmail(email) == false {
             // メールアドレスの形式が不正
-            return inputValidationAlertEntityWithMessage("メールアドレスの形式が不正です。")
+            return AlertService.inputValidationAlertEntityWithMessage("メールアドレスの形式が不正です。")
         }
         return nil
-    }
-    
-    // 新規登録時入力バリデーション
-    static func inputValidationAlertEntityWithMessage(_ message: String) -> CustomAlertEntity {
-        let alertEntity = CustomAlertEntity(
-            buttonType: .singleButton,
-            title: "入力エラー",
-            message: message,
-            positiveTitle: "",
-            negativeTitle: "閉じる",
-            buttonAction: {}
-        )
-        return alertEntity
     }
  
     static func isValidEmail(_ string: String) -> Bool {

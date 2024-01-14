@@ -43,8 +43,8 @@
 		B7D4175D2B5289B3002A1C24 /* CustomAlertEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */; };
 		B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */; };
 		B7D417622B528D1D002A1C24 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417612B528D1D002A1C24 /* AlertViewModel.swift */; };
-		B7D417642B52AA5F002A1C24 /* LoginProcessState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417632B52AA5F002A1C24 /* LoginProcessState.swift */; };
 		B7D417662B52AB4E002A1C24 /* CompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417652B52AB4E002A1C24 /* CompleteView.swift */; };
+		B7D417682B538B08002A1C24 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417672B538B08002A1C24 /* AlertService.swift */; };
 		B7E3DB812B3EBE2500903FA1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB802B3EBE2500903FA1 /* LoginView.swift */; };
 		B7E3DB832B3F1B9800903FA1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */; };
 		B7E3DB852B3F1CD500903FA1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */; };
@@ -102,8 +102,8 @@
 		B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertEntity.swift; sourceTree = "<group>"; };
 		B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationInteractor.swift; sourceTree = "<group>"; };
 		B7D417612B528D1D002A1C24 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
-		B7D417632B52AA5F002A1C24 /* LoginProcessState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProcessState.swift; sourceTree = "<group>"; };
 		B7D417652B52AB4E002A1C24 /* CompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteView.swift; sourceTree = "<group>"; };
+		B7D417672B538B08002A1C24 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		B7E3DB802B3EBE2500903FA1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -241,7 +241,6 @@
 				B7C6325A2B35CBF7006B1E4E /* ShopInfo.swift */,
 				B7C632612B35CE82006B1E4E /* Mock.swift */,
 				B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */,
-				B7D417632B52AA5F002A1C24 /* LoginProcessState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */,
+				B7D417672B538B08002A1C24 /* AlertService.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -459,6 +459,7 @@
 				B7D4174C2B524148002A1C24 /* SettingView.swift in Sources */,
 				B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */,
 				B7D417622B528D1D002A1C24 /* AlertViewModel.swift in Sources */,
+				B7D417682B538B08002A1C24 /* AlertService.swift in Sources */,
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
 				B7C6325B2B35CBF7006B1E4E /* ShopInfo.swift in Sources */,
 				B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */,
@@ -479,7 +480,6 @@
 				B7D417472B5190EF002A1C24 /* HPView.swift in Sources */,
 				B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */,
 				B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */,
-				B7D417642B52AA5F002A1C24 /* LoginProcessState.swift in Sources */,
 				B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */,
 				B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */,
 				B78BED4E2B35CA56005A05C6 /* HPListView.swift in Sources */,

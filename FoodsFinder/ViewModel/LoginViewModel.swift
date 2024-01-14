@@ -11,7 +11,12 @@ import FirebaseAuth
 
 final class LoginViewModel: ObservableObject {
     
-    @Published var loginProcessState = LoginProcessState()
+    // Fetch State
+    @Published var isFetching: Bool = false
+    // Alert
+    @Published var alertViewModel = AlertViewModel()
+    // アラートが閉じられたとき
+    var alertCompletion: () -> Void = { }
     
     private init() {}
     static let shared = LoginViewModel()
@@ -20,33 +25,47 @@ final class LoginViewModel: ObservableObject {
     
     /// 新規登録
     func createUser(email: String, password: String, name: String) {
-        loginProcessState.isFetching = true
+        isFetching = true
         loginModel.auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard let self else { return }
-            self.loginProcessState.isFetching = false
+            self.isFetching = false
             if let error = error as NSError?,
                let errorCode = AuthErrorCode.Code(rawValue: error._code) {
+                
+                var errorMessage = ""
+                
                 switch errorCode {
                 case .invalidEmail:
                     //メールアドレスの形式によるエラー
                     print("signup_mail_error")
+                    errorMessage = "signup_mail_error"
                 case .weakPassword:
                     //パスワードが脆弱(6文字以下)
                     print("signup_pass_error")
+                    errorMessage = "signup_pass_error"
                 case .emailAlreadyInUse:
                     //メールアドレスが既に登録されている
                     print("signup_already_error")
+                    errorMessage = "signup_already_error"
                 case .networkError:
                     //通信エラー
                     print("signup_network_error")
+                    errorMessage = "signup_network_error"
                 default:
                     //その他エラー
                     print("signup_other_error")
+                    errorMessage = "signup_other_error"
                 }
+                let alertEntity = AlertService.createdUserErrorAlertEntityWithMessage(errorMessage)
+                self.alertViewModel.alertEntity = alertEntity
+                self.alertViewModel.alertEntity.show()
                 return
             }
-            self.loginProcessState.isSucceed = true
-            print("仮登録完了画面へ")
+            let alertEntity = AlertService.createdUserAlertEntity({
+                self.alertCompletion()
+            })
+            self.alertViewModel.alertEntity = alertEntity
+            self.alertViewModel.alertEntity.show()
         }
     }
     
