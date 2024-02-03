@@ -117,7 +117,7 @@ struct SignUpView: View {
             .ignoresSafeArea(.keyboard, edges: .bottom)
         }
         .customAlert(for: $alertViewModel.alertEntity)
-        .customAlert2(for: $loginViewModel.alertViewModel.alertEntity)
+        .customAlert(for: $loginViewModel.alertViewModel.alertEntity)
         .PKHUD(isPresented: $loginViewModel.isFetching, HUDContent: .progress)
     }
     
