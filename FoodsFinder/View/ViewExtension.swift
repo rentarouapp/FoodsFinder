@@ -13,7 +13,6 @@ extension View {
     public func PKHUD(isPresented: Binding<Bool>, HUDContent: HUDContentType) -> some View {
         PKHUDModifier(isPresented: isPresented, hudContent: HUDContent, parent: self)
     }
-    
     // アラート表示
     func customAlert(for alertEntity: Binding<CustomAlertEntity>) -> some View {
         modifier(CustomAlertModifier(alertEntity: alertEntity))
