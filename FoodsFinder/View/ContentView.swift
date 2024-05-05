@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showSheet: Bool = true
+    @State private var showSheet: Bool = false
     
     var body: some View {
         HPView()

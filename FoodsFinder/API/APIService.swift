@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 protocol APIServiceType {
-    func request<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: APIRequestType
+    func requestCombine<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: APIRequestType
+    func requestSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType
 }
 
 final class APIService: APIServiceType {
@@ -19,29 +20,26 @@ final class APIService: APIServiceType {
         self.baseURLString = baseURLString
     }
     
-    // https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?keyword=西東京&key=ee6d7b1b10b24aef&format=json
-    func request<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : APIRequestType {
-        guard let pathURL = URL(string: request.path, relativeTo: URL(string: self.baseURLString)) else {
-            return Fail(error: APIServiceError.invalidURL).eraseToAnyPublisher()
-        }
-        guard var urlComponents = URLComponents(url: pathURL, resolvingAgainstBaseURL: true) else {
-            return Fail(error: APIServiceError.invalidURL).eraseToAnyPublisher()
-        }
-        // ここでurlComponentsに対してqueryのSettingもいける
-        urlComponents.queryItems = request.queryItems
-        
-        guard let _url = urlComponents.url else {
-            return Fail(error: APIServiceError.invalidURL).eraseToAnyPublisher()
-        }
-        var request = URLRequest(url: _url)
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type") // Request Header
-        // トークンの設定もいける
-        //request.addValue("トークン", forHTTPHeaderField: "X-Mobile-Token")
-        
+    private let session: URLSession = {
+        let config = URLSessionConfiguration.default
+        return URLSession(configuration: config)
+    }()
+    
+    private let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        print("DEBUG_URL_CHECK: \(request.url?.absoluteString ?? "none_url")")
+        return decoder
+    }()
+}
+
+// Combine
+extension APIService {
+    // https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?keyword=西東京&key=ee6d7b1b10b24aef&format=json
+    func requestCombine<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : APIRequestType {
+        guard let request = request.generateURLRequest() else {
+            return Fail(error: APIServiceError.invalidRequestError).eraseToAnyPublisher()
+        }
+        print("DEBUG_URL_CHECK_Combine: \(request.url?.absoluteString ?? "none_url")")
         return URLSession.shared.dataTaskPublisher(for: request)
             .map { data, urlResponse in data }
             //.map { $0.data }
@@ -51,11 +49,33 @@ final class APIService: APIServiceType {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-    
+}
+
+// Swift Concurrency
+extension APIService {
+    func requestSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType {
+        guard let request = request.generateURLRequest() else {
+            throw APIServiceError.invalidRequestError
+        }
+        print("DEBUG_URL_CHECK_Concurrency: \(request.url?.absoluteString ?? "none_url")")
+        let result = try await session.data(for: request)
+        let data = result.0
+        let response = result.1
+        
+        guard let code = (response as? HTTPURLResponse)?.statusCode else {
+            throw APIServiceError.connectionError(data)
+        }
+        guard (200..<300).contains(code) else {
+            throw APIServiceError.apiStatusError
+        }
+        return try decoder.decode(Request.Response.self, from: data)
+    }
 }
 
 enum APIServiceError: Error {
-    case invalidURL
+    case invalidRequestError
+    case apiStatusError
+    case connectionError(Data)
     case responseError
     case parseError(Error)
 }

@@ -12,6 +12,7 @@ protocol APIRequestType {
     
     var path: String { get }
     var queryItems: [URLQueryItem]? { get }
+    func generateURLRequest() -> URLRequest?
 }
 
 struct ShopInfoRequest: APIRequestType {
@@ -30,6 +31,23 @@ struct ShopInfoRequest: APIRequestType {
     public let keyword: String
     init(keyword: String) {
         self.keyword = keyword
+    }
+    
+    func generateURLRequest() -> URLRequest? {
+        guard let pathURL = URL(string: path, relativeTo: URL(string: path)),
+              var urlComponents = URLComponents(url: pathURL, resolvingAgainstBaseURL: true) else {
+            return nil
+        }
+        urlComponents.queryItems = queryItems
+        guard let url = urlComponents.url else {
+            return nil
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type") // Request Header
+        // トークンの設定もいける
+        //request.addValue("トークン", forHTTPHeaderField: "X-Mobile-Token")
+        return request
     }
     
 }
