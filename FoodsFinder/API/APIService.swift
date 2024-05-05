@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 protocol APIServiceType {
-    func requestCombine<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: APIRequestType
-    func requestSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType
+    func requestWithCombine<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: APIRequestType
+    func requestWithSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType
 }
 
 final class APIService: APIServiceType {
@@ -35,7 +35,7 @@ final class APIService: APIServiceType {
 // Combine
 extension APIService {
     // https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?keyword=西東京&key=ee6d7b1b10b24aef&format=json
-    func requestCombine<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : APIRequestType {
+    func requestWithCombine<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : APIRequestType {
         guard let request = request.generateURLRequest() else {
             return Fail(error: APIServiceError.invalidRequestError).eraseToAnyPublisher()
         }
@@ -53,7 +53,7 @@ extension APIService {
 
 // Swift Concurrency
 extension APIService {
-    func requestSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType {
+    func requestWithSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType {
         guard let request = request.generateURLRequest() else {
             throw APIServiceError.invalidRequestError
         }
