@@ -9,22 +9,21 @@ import Foundation
 import Combine
 import Reachability
 
+@MainActor
 final class HPViewModel: NSObject, ObservableObject {
     @Published var shopInfoResponse: ShopInfoResponse = .init(result: nil)
     @Published var isFetching: Bool = false
-    
     // EmptyViewの表示内容
     @Published var type: EmptyViewType = .initial
-    // Alert
-    //@Published var alertViewModel = AlertViewModel()
     
     private let apiService = APIService()
+    private var onShopSearchTask: Task<(), Never>?
     private let errorSubject = PassthroughSubject<APIServiceError, Never>()
     private let onShopSearchSubject = PassthroughSubject<ShopInfoRequest, Never>()
     private var cancellables: [AnyCancellable] = []
     
     private func requestSend(request: ShopInfoRequest) {
-        apiService.request(with: request)
+        apiService.requestWithCombine(with: request)
             .catch { [weak self] error -> Empty<ShopInfoResponse, Never> in
                 if let `self` = self {
                     self.handleAPIError(error: error)
@@ -61,7 +60,7 @@ final class HPViewModel: NSObject, ObservableObject {
             // 通信結果
             self.onShopSearchSubject
                 .flatMap { [apiService] (request) in
-                    apiService.request(with: request)
+                    apiService.requestWithCombine(with: request)
                         .catch { [weak self] error -> Empty<ShopInfoResponse, Never> in
                             if let `self` = self {
                                 self.errorSubject.send(error)
@@ -86,18 +85,37 @@ final class HPViewModel: NSObject, ObservableObject {
         ]
     }
     
+    private func requestSendWithSwiftConcurrency(request: ShopInfoRequest) {
+        self.onShopSearchTask = Task { [weak self] in
+            guard let self else { return }
+            defer {
+                self.isFetching = false
+            }
+            do {
+                self.shopInfoResponse = try await apiService.requestWithSwiftConcurrency(with: request)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     // キーボードの検索ボタンが押されたときにView側から呼び出す
     func resumeSearch(keyword: String) {
         self.cancellables.forEach { $0.cancel() }
+        self.onShopSearchTask?.cancel()
         self.isFetching = true
         self.bind()
         self.shopInfoResponse = .init(result: nil)
         
         let request: ShopInfoRequest = ShopInfoRequest(keyword: keyword)
-        // 1: もう一つPublisherを挟んで入力値を流すケース
+        // 1: Combine/もう一つPublisherを挟んで入力値を流すケース
         self.onShopSearchSubject.send(request)
-        // 2: URLSession.DataTaskPublisherに直接値を入れるケース
+        
+        // 2: Combine/URLSession.DataTaskPublisherに直接値を入れるケース
         //self.requestSend(request: request)
+        
+        // 3: Swift Concurrency
+        //self.requestSendWithSwiftConcurrency(request: request)
     }
     
     // 通信をキャンセルする
@@ -130,8 +148,12 @@ final class HPViewModel: NSObject, ObservableObject {
             print("Reachability_failed")
         }
         switch error {
-        case .invalidURL:
-            print("invalidURL")
+        case .invalidRequestError:
+            print("invalidRequest")
+        case .apiStatusError:
+            print("apiStatusError")
+        case let .connectionError(data):
+            print("connectionError: \(data.description)")
         case .responseError:
             print("responseError")
         case let .parseError(error):
