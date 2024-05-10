@@ -35,6 +35,7 @@
 		B7C97EDD2BECF99E00E9A64E /* FoodsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EDC2BECF99E00E9A64E /* FoodsListViewController.swift */; };
 		B7C97EDF2BECFDF100E9A64E /* FoodsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EDE2BECFDF100E9A64E /* FoodsListCollectionViewCell.swift */; };
 		B7C97EE22BECFEDD00E9A64E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7C97EE12BECFEDD00E9A64E /* SnapKit */; };
+		B7C97EE62BEE3BC300E9A64E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EE52BEE3BC300E9A64E /* Extension.swift */; };
 		B7D417452B5170A3002A1C24 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417442B5170A3002A1C24 /* SignUpView.swift */; };
 		B7D417472B5190EF002A1C24 /* HPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417462B5190EF002A1C24 /* HPView.swift */; };
 		B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417492B52341B002A1C24 /* NavigationPath.swift */; };
@@ -96,6 +97,7 @@
 		B7C6326E2B3674B9006B1E4E /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		B7C97EDC2BECF99E00E9A64E /* FoodsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListViewController.swift; sourceTree = "<group>"; };
 		B7C97EDE2BECFDF100E9A64E /* FoodsListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListCollectionViewCell.swift; sourceTree = "<group>"; };
+		B7C97EE52BEE3BC300E9A64E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B7D417442B5170A3002A1C24 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		B7D417462B5190EF002A1C24 /* HPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPView.swift; sourceTree = "<group>"; };
 		B7D417492B52341B002A1C24 /* NavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPath.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				B7C6326A2B35D89E006B1E4E /* Constants.swift */,
+				B7C97EE52BEE3BC300E9A64E /* Extension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				B7D417622B528D1D002A1C24 /* AlertViewModel.swift in Sources */,
 				B7D417682B538B08002A1C24 /* AlertService.swift in Sources */,
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
+				B7C97EE62BEE3BC300E9A64E /* Extension.swift in Sources */,
 				B7C6325B2B35CBF7006B1E4E /* ShopInfo.swift in Sources */,
 				B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */,
 				B7D4175B2B5289A2002A1C24 /* CustomAlertModifier.swift in Sources */,

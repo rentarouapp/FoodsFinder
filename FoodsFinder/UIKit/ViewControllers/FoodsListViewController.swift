@@ -12,12 +12,15 @@ import Combine
 
 // MARK: - UIKit UIViewController
 final class FoodsListViewController: UIViewController {
-    
-    private let hpViewModel = HPViewModel()
-    private let apiService = APIService()
-    private var subscriptions = [AnyCancellable]()
     private let errorSubject = PassthroughSubject<APIServiceError, Never>()
     private let onShopSearchSubject = PassthroughSubject<ShopInfoRequest, Never>()
+    private var cancellables = [AnyCancellable]()
+    
+    private var shops = [Shop]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     private let sections: [Section] = [.large, .landscape, .square]
     
@@ -37,6 +40,7 @@ final class FoodsListViewController: UIViewController {
             frame: .zero,
             collectionViewLayout: collectionViewLayout
         )
+        collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(FoodsListCollectionViewLargeCell.self,
                                 forCellWithReuseIdentifier: FoodsListCollectionViewLargeCell.resuseIdentifier)
@@ -56,15 +60,16 @@ final class FoodsListViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
         }
-        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hpViewModel.resumeSearch(keyword: "小平")
+        fetchWithKeyword("小平")
     }
     
-    func bind() {
+    private func bind() {
+        let apiService = APIService()
+        // API通信をSubscribeする
         onShopSearchSubject
             .flatMap { [apiService] (request) in
                 apiService.requestWithCombine(with: request)
@@ -77,20 +82,35 @@ final class FoodsListViewController: UIViewController {
             }
             .sink { [weak self] (response) in
                 guard let self = self else { return }
+                self.shops = response.result?.shops ?? []
                 self.collectionView.reloadData()
             }
-            .store(in: &subscriptions)
+            .store(in: &cancellables)
+        // 流れてきたエラーをSubscribeする
+        errorSubject
+            .sink(receiveValue: { error in
+                // ここでエラーをさばく
+                print(error.localizedDescription)
+            })
+            .store(in: &cancellables)
+    }
+    
+    private func fetchWithKeyword(_ keyword: String) {
+        shops.removeAll()
+        cancellables.forEach { $0.cancel() }
+        bind()
+        onShopSearchSubject.send(ShopInfoRequest(keyword: keyword))
     }
     
 }
 
-extension FoodsListViewController: UICollectionViewDataSource {
+extension FoodsListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        colors.count
+        shops.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -98,22 +118,35 @@ extension FoodsListViewController: UICollectionViewDataSource {
         case 0:
             if let largeCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FoodsListCollectionViewLargeCell.self),
                                                                   for: indexPath) as? FoodsListCollectionViewLargeCell {
+                if let shop = shops[safe: indexPath.row] {
+                    largeCell.bindData(shop: shop)
+                }
                 return largeCell
             }
         case 1:
             if let landScapeCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FoodsListCollectionViewLandscapeCell.self),
                                                                       for: indexPath) as? FoodsListCollectionViewLandscapeCell {
+                if let shop = shops[safe: indexPath.row] {
+                    landScapeCell.bindData(shop: shop)
+                }
                 return landScapeCell
             }
         case 2:
             if let squareCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FoodsListCollectionViewSquareCell.self),
                                                                    for: indexPath) as? FoodsListCollectionViewSquareCell {
+                if let shop = shops[safe: indexPath.row] {
+                    squareCell.bindData(shop: shop)
+                }
                 return squareCell
             }
         default:
             break
         }
         return .init()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }
 
@@ -160,7 +193,7 @@ enum Section {
             )
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             let layoutSection = NSCollectionLayoutSection(group: group)
-            layoutSection.orthogonalScrollingBehavior = .groupPaging
+            layoutSection.orthogonalScrollingBehavior = .continuous
             layoutSection.interGroupSpacing = 8
             layoutSection.contentInsets = .init(
                 top: 0, leading: horizontalInset, bottom: 0, trailing: horizontalInset
@@ -181,7 +214,7 @@ enum Section {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let layoutSection = NSCollectionLayoutSection(group: group)
-            layoutSection.orthogonalScrollingBehavior = .groupPaging
+            layoutSection.orthogonalScrollingBehavior = .continuous
             layoutSection.interGroupSpacing = 8
             layoutSection.contentInsets = .init(
                 top: 0, leading: horizontalInset, bottom: 0, trailing: horizontalInset

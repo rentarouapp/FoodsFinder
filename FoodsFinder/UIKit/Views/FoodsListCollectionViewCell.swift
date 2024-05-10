@@ -13,7 +13,14 @@ class FoodsListCollectionViewCell: UICollectionViewCell {
         return String(describing: Self.self)
     }
     
-    var foodContentView: UIView = {
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let foodContentView: UIView = {
         let foodContentView = UIView()
         foodContentView.translatesAutoresizingMaskIntoConstraints = false
         foodContentView.layer.cornerRadius = 16
@@ -24,9 +31,17 @@ class FoodsListCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         contentView.addSubview(foodContentView)
+        foodContentView.addSubview(titleLabel)
         foodContentView.snp.makeConstraints {
             $0.top.left.bottom.right.equalToSuperview()
         }
+        titleLabel.snp.makeConstraints {
+            $0.top.left.bottom.right.equalToSuperview()
+        }
+    }
+    
+    func bindData(shop: Shop) {
+        titleLabel.text = shop.name
     }
     
     required init?(coder: NSCoder) {
