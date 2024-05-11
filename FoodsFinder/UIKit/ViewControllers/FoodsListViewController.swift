@@ -16,9 +16,19 @@ final class FoodsListViewController: UIViewController {
     private let onShopSearchSubject = PassthroughSubject<ShopInfoRequest, Never>()
     private var cancellables = [AnyCancellable]()
     
-    private var shops = [Shop]() {
+    var bridge: FoodsListBridge?
+    
+    var shops = [Shop]() {
         didSet {
             collectionView.reloadData()
+        }
+    }
+    
+    var keyword: String = "" {
+        didSet {
+            if keyword.isEmpty {
+                reset()
+            }
         }
     }
     
@@ -60,11 +70,7 @@ final class FoodsListViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchWithKeyword("小平")
+        bridge?.viewController = self
     }
     
     private func bind() {
@@ -83,23 +89,43 @@ final class FoodsListViewController: UIViewController {
             .sink { [weak self] (response) in
                 guard let self = self else { return }
                 self.shops = response.result?.shops ?? []
+                self.bridge?.shops = self.shops
+                self.bridge?.isSearched = true
+                self.bridge?.isFetching = false
                 self.collectionView.reloadData()
             }
             .store(in: &cancellables)
         // 流れてきたエラーをSubscribeする
         errorSubject
-            .sink(receiveValue: { error in
+            .sink(receiveValue: { [weak self] error in
+                guard let self else { return }
                 // ここでエラーをさばく
+                self.bridge?.isSearched = true
+                self.bridge?.isFetching = false
                 print(error.localizedDescription)
             })
             .store(in: &cancellables)
     }
     
-    private func fetchWithKeyword(_ keyword: String) {
-        shops.removeAll()
-        cancellables.forEach { $0.cancel() }
+    func resumeSearch() {
+        bridge?.isFetching = true
+        reset()
         bind()
         onShopSearchSubject.send(ShopInfoRequest(keyword: keyword))
+    }
+    
+    private func reset() {
+        shops.removeAll()
+        cancellables.forEach { $0.cancel() }
+        bridgeReset()
+    }
+    
+    private func bridgeReset() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.bridge?.shops.removeAll()
+            self.bridge?.isSearched = false
+        }
     }
     
 }
@@ -224,15 +250,63 @@ enum Section {
     }
 }
 
+@MainActor
+class FoodsListBridge: ObservableObject {
+    var viewController: FoodsListViewController?
+    @Published var shops = [Shop]()
+    @Published var isSearched = false
+    @Published var isFetching = false
+}
+
+// MARK: - Container
+struct FoodListContainer: View {
+    @FocusState var focus: Bool
+    @State private var searchText: String = ""
+    @StateObject private var bridge: FoodsListBridge = FoodsListBridge()
+    
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                FoodsListViewControllerWrapper(keyword: searchText,
+                                               bridge: bridge)
+                .navigationTitle("お店を探す")
+                
+                if bridge.shops.count == 0 {
+                    Color(.white)
+                    if bridge.isSearched {
+                        Text("検索結果なし")
+                    } else {
+                        Text("なにもなし")
+                    }
+                }
+            }
+        }
+        .searchable(text: $searchText)
+        .onSubmit(of: .search) {
+            // 決定キー押された
+            if !searchText.isEmpty {
+                focus = false
+                bridge.viewController?.resumeSearch()
+            }
+        }
+        .focused(self.$focus)
+        .PKHUD(isPresented: $bridge.isFetching, HUDContent: .progress)
+    }
+}
+
 // MARK: - SwiftUI UIViewControllerRepresentable
 struct FoodsListViewControllerWrapper: UIViewControllerRepresentable {
+    let keyword: String
+    let bridge: FoodsListBridge
     
     func makeUIViewController(context: Context) -> FoodsListViewController {
-        return FoodsListViewController()
+        let foodsListViewController = FoodsListViewController()
+        foodsListViewController.bridge = bridge
+        return foodsListViewController
     }
     
     func updateUIViewController(_ uiViewController: FoodsListViewController, context: Context) {
-        
+        uiViewController.keyword = keyword
     }
     
 }
