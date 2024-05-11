@@ -1,5 +1,5 @@
 //
-//  HPListView.swift
+//  ShopsListView.swift
 //  FoodsFinder
 //
 //  Created by 上條蓮太朗 on 2023/12/22.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct HPListView: View {
+struct ShopsListView: View {
     
     // ViewModel
-    @StateObject private var hpViewModel = HPViewModel()
+    @StateObject private var hpViewModel = ShopsFetchViewModel()
     @FocusState var focus: Bool
     @State private var searchText: String = ""
 
@@ -61,6 +61,6 @@ struct HPListView: View {
 
 struct HPListView_Previews: PreviewProvider {
     static var previews: some View {
-        HPListView()
+        ShopsListView()
     }
 }

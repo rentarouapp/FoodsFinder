@@ -14,7 +14,7 @@
 		B78BED322B35C7BF005A05C6 /* FoodsFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED312B35C7BF005A05C6 /* FoodsFinderTests.swift */; };
 		B78BED3C2B35C7BF005A05C6 /* FoodsFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED3B2B35C7BF005A05C6 /* FoodsFinderUITests.swift */; };
 		B78BED3E2B35C7BF005A05C6 /* FoodsFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED3D2B35C7BF005A05C6 /* FoodsFinderUITestsLaunchTests.swift */; };
-		B78BED4E2B35CA56005A05C6 /* HPListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED4D2B35CA56005A05C6 /* HPListView.swift */; };
+		B78BED4E2B35CA56005A05C6 /* ShopsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED4D2B35CA56005A05C6 /* ShopsListView.swift */; };
 		B7B1683D2B368F2100F521D9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B7B1683C2B368F2100F521D9 /* FirebaseAnalytics */; };
 		B7B1683F2B368F2900F521D9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7B1683E2B368F2900F521D9 /* FirebaseAuth */; };
 		B7B168412B368FA700F521D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7B168402B368FA700F521D9 /* GoogleService-Info.plist */; };
@@ -30,14 +30,14 @@
 		B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C632662B35D1BB006B1E4E /* APIService.swift */; };
 		B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C632682B35D1F9006B1E4E /* APIRequest.swift */; };
 		B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326A2B35D89E006B1E4E /* Constants.swift */; };
-		B7C6326D2B35DA86006B1E4E /* HPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */; };
+		B7C6326D2B35DA86006B1E4E /* ShopsFetchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326C2B35DA86006B1E4E /* ShopsFetchViewModel.swift */; };
 		B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326E2B3674B9006B1E4E /* EmptyView.swift */; };
-		B7C97EDD2BECF99E00E9A64E /* FoodsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EDC2BECF99E00E9A64E /* FoodsListViewController.swift */; };
-		B7C97EDF2BECFDF100E9A64E /* FoodsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EDE2BECFDF100E9A64E /* FoodsListCollectionViewCell.swift */; };
+		B7C97EDD2BECF99E00E9A64E /* ShopsGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EDC2BECF99E00E9A64E /* ShopsGridViewController.swift */; };
+		B7C97EDF2BECFDF100E9A64E /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EDE2BECFDF100E9A64E /* ShopCollectionViewCell.swift */; };
 		B7C97EE22BECFEDD00E9A64E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7C97EE12BECFEDD00E9A64E /* SnapKit */; };
 		B7C97EE62BEE3BC300E9A64E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EE52BEE3BC300E9A64E /* Extension.swift */; };
 		B7D417452B5170A3002A1C24 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417442B5170A3002A1C24 /* SignUpView.swift */; };
-		B7D417472B5190EF002A1C24 /* HPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417462B5190EF002A1C24 /* HPView.swift */; };
+		B7D417472B5190EF002A1C24 /* ShopsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417462B5190EF002A1C24 /* ShopsSearchView.swift */; };
 		B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417492B52341B002A1C24 /* NavigationPath.swift */; };
 		B7D4174C2B524148002A1C24 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4174B2B524148002A1C24 /* SettingView.swift */; };
 		B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417512B527FFA002A1C24 /* PKHUDView.swift */; };
@@ -82,7 +82,7 @@
 		B78BED372B35C7BF005A05C6 /* FoodsFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodsFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78BED3B2B35C7BF005A05C6 /* FoodsFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsFinderUITests.swift; sourceTree = "<group>"; };
 		B78BED3D2B35C7BF005A05C6 /* FoodsFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B78BED4D2B35CA56005A05C6 /* HPListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPListView.swift; sourceTree = "<group>"; };
+		B78BED4D2B35CA56005A05C6 /* ShopsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsListView.swift; sourceTree = "<group>"; };
 		B7B168402B368FA700F521D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7B1684E2B369A9200F521D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B7C632582B35CB4C006B1E4E /* ShopDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDescriptionView.swift; sourceTree = "<group>"; };
@@ -93,13 +93,13 @@
 		B7C632662B35D1BB006B1E4E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		B7C632682B35D1F9006B1E4E /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		B7C6326A2B35D89E006B1E4E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPViewModel.swift; sourceTree = "<group>"; };
+		B7C6326C2B35DA86006B1E4E /* ShopsFetchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsFetchViewModel.swift; sourceTree = "<group>"; };
 		B7C6326E2B3674B9006B1E4E /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		B7C97EDC2BECF99E00E9A64E /* FoodsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListViewController.swift; sourceTree = "<group>"; };
-		B7C97EDE2BECFDF100E9A64E /* FoodsListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListCollectionViewCell.swift; sourceTree = "<group>"; };
+		B7C97EDC2BECF99E00E9A64E /* ShopsGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsGridViewController.swift; sourceTree = "<group>"; };
+		B7C97EDE2BECFDF100E9A64E /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		B7C97EE52BEE3BC300E9A64E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B7D417442B5170A3002A1C24 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		B7D417462B5190EF002A1C24 /* HPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPView.swift; sourceTree = "<group>"; };
+		B7D417462B5190EF002A1C24 /* ShopsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsSearchView.swift; sourceTree = "<group>"; };
 		B7D417492B52341B002A1C24 /* NavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPath.swift; sourceTree = "<group>"; };
 		B7D4174B2B524148002A1C24 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B7D417512B527FFA002A1C24 /* PKHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDView.swift; sourceTree = "<group>"; };
@@ -219,8 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				B78BED222B35C7BB005A05C6 /* ContentView.swift */,
-				B7D417462B5190EF002A1C24 /* HPView.swift */,
-				B78BED4D2B35CA56005A05C6 /* HPListView.swift */,
+				B7D417462B5190EF002A1C24 /* ShopsSearchView.swift */,
+				B78BED4D2B35CA56005A05C6 /* ShopsListView.swift */,
 				B7C632582B35CB4C006B1E4E /* ShopDescriptionView.swift */,
 				B7C6325C2B35CCD6006B1E4E /* ShopItemView.swift */,
 				B7C632632B35CF0D006B1E4E /* FavoriteListView.swift */,
@@ -237,7 +237,7 @@
 		B78BED4B2B35C8A4005A05C6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B7C6326C2B35DA86006B1E4E /* HPViewModel.swift */,
+				B7C6326C2B35DA86006B1E4E /* ShopsFetchViewModel.swift */,
 				B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */,
 				B7D417612B528D1D002A1C24 /* AlertViewModel.swift */,
 			);
@@ -291,7 +291,7 @@
 		B7C97ED82BECF96800E9A64E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B7C97EDC2BECF99E00E9A64E /* FoodsListViewController.swift */,
+				B7C97EDC2BECF99E00E9A64E /* ShopsGridViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,7 +299,7 @@
 		B7C97ED92BECF97D00E9A64E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B7C97EDE2BECFDF100E9A64E /* FoodsListCollectionViewCell.swift */,
+				B7C97EDE2BECFDF100E9A64E /* ShopCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -492,7 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7C97EDF2BECFDF100E9A64E /* FoodsListCollectionViewCell.swift in Sources */,
+				B7C97EDF2BECFDF100E9A64E /* ShopCollectionViewCell.swift in Sources */,
 				B7C632642B35CF0D006B1E4E /* FavoriteListView.swift in Sources */,
 				B7D4174C2B524148002A1C24 /* SettingView.swift in Sources */,
 				B7C6326F2B3674B9006B1E4E /* EmptyView.swift in Sources */,
@@ -507,8 +507,8 @@
 				B7D417582B52845C002A1C24 /* ViewExtension.swift in Sources */,
 				B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */,
 				B7E3DB852B3F1CD500903FA1 /* LoginModel.swift in Sources */,
-				B7C97EDD2BECF99E00E9A64E /* FoodsListViewController.swift in Sources */,
-				B7C6326D2B35DA86006B1E4E /* HPViewModel.swift in Sources */,
+				B7C97EDD2BECF99E00E9A64E /* ShopsGridViewController.swift in Sources */,
+				B7C6326D2B35DA86006B1E4E /* ShopsFetchViewModel.swift in Sources */,
 				B7D417662B52AB4E002A1C24 /* CompleteView.swift in Sources */,
 				B7C632592B35CB4C006B1E4E /* ShopDescriptionView.swift in Sources */,
 				B7C632622B35CE82006B1E4E /* Mock.swift in Sources */,
@@ -517,12 +517,12 @@
 				B7C6325D2B35CCD6006B1E4E /* ShopItemView.swift in Sources */,
 				B7D417452B5170A3002A1C24 /* SignUpView.swift in Sources */,
 				B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */,
-				B7D417472B5190EF002A1C24 /* HPView.swift in Sources */,
+				B7D417472B5190EF002A1C24 /* ShopsSearchView.swift in Sources */,
 				B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */,
 				B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */,
 				B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */,
 				B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */,
-				B78BED4E2B35CA56005A05C6 /* HPListView.swift in Sources */,
+				B78BED4E2B35CA56005A05C6 /* ShopsListView.swift in Sources */,
 				B7D417542B5280EB002A1C24 /* PKHUDModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  FoodsListViewController.swift
+//  ShopsGridViewController.swift
 //  FoodsFinder
 //
 //  Created by 上條蓮太朗 on 2024/05/09.
@@ -11,12 +11,12 @@ import SwiftUI
 import Combine
 
 // MARK: - UIKit UIViewController
-final class FoodsListViewController: UIViewController {
+final class ShopsGridViewController: UIViewController {
     private let errorSubject = PassthroughSubject<APIServiceError, Never>()
     private let onShopSearchSubject = PassthroughSubject<ShopInfoRequest, Never>()
     private var cancellables = [AnyCancellable]()
     
-    var bridge: FoodsListBridge?
+    var bridge: ShopsGridViewBridge?
     
     var keyword: String = "" {
         didSet {
@@ -49,7 +49,7 @@ final class FoodsListViewController: UIViewController {
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Shop.ID> = {
         
-        let shopCellRegistration = UICollectionView.CellRegistration<FoodsListCollectionViewCell, Shop> { cell, indexPath, shop in
+        let shopCellRegistration = UICollectionView.CellRegistration<ShopCollectionViewCell, Shop> { cell, indexPath, shop in
             cell.titleLabel.text = shop.name
         }
         
@@ -215,8 +215,8 @@ enum Section {
 }
 
 @MainActor
-class FoodsListBridge: ObservableObject {
-    var viewController: FoodsListViewController?
+class ShopsGridViewBridge: ObservableObject {
+    var viewController: ShopsGridViewController?
     @Published var shopRepository = ShopRepository()
     @Published var isSearched = false
     @Published var isFetching = false
@@ -231,15 +231,15 @@ class FoodsListBridge: ObservableObject {
 }
 
 // MARK: - Container
-struct FoodListContainer: View {
+struct ShopsGridViewControllerContainer: View {
     @FocusState var focus: Bool
     @State private var searchText: String = ""
-    @StateObject private var bridge: FoodsListBridge = FoodsListBridge()
+    @StateObject private var bridge: ShopsGridViewBridge = ShopsGridViewBridge()
     
     var body: some View {
         NavigationStack {
             ZStack {
-                FoodsListViewControllerWrapper(keyword: searchText,
+                ShopsGridViewControllerWrapper(keyword: searchText,
                                                bridge: bridge)
                 .navigationTitle("お店を探す")
                 
@@ -267,17 +267,17 @@ struct FoodListContainer: View {
 }
 
 // MARK: - SwiftUI UIViewControllerRepresentable
-struct FoodsListViewControllerWrapper: UIViewControllerRepresentable {
+struct ShopsGridViewControllerWrapper: UIViewControllerRepresentable {
     let keyword: String
-    let bridge: FoodsListBridge
+    let bridge: ShopsGridViewBridge
     
-    func makeUIViewController(context: Context) -> FoodsListViewController {
-        let foodsListViewController = FoodsListViewController()
-        foodsListViewController.bridge = bridge
-        return foodsListViewController
+    func makeUIViewController(context: Context) -> ShopsGridViewController {
+        let shopsGridViewController = ShopsGridViewController()
+        shopsGridViewController.bridge = bridge
+        return shopsGridViewController
     }
     
-    func updateUIViewController(_ uiViewController: FoodsListViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: ShopsGridViewController, context: Context) {
         uiViewController.keyword = keyword
     }
     

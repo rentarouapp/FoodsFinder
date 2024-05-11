@@ -1,5 +1,5 @@
 //
-//  FoodsListCollectionViewCell.swift
+//  ShopCollectionViewCell.swift
 //  FoodsFinder
 //
 //  Created by 上條蓮太朗 on 2024/05/09.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FoodsListCollectionViewCell: UICollectionViewCell {
+class ShopCollectionViewCell: UICollectionViewCell {
     
     static var resuseIdentifier: String {
         return String(describing: Self.self)
@@ -50,7 +50,7 @@ class FoodsListCollectionViewCell: UICollectionViewCell {
     }
 }
 
-class FoodsListCollectionViewLargeCell: FoodsListCollectionViewCell {
+class ShopCollectionViewLargeCell: ShopCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,7 +62,7 @@ class FoodsListCollectionViewLargeCell: FoodsListCollectionViewCell {
     }
 }
 
-class FoodsListCollectionViewLandscapeCell: FoodsListCollectionViewCell {
+class ShopCollectionViewLandscapeCell: ShopCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,7 +74,7 @@ class FoodsListCollectionViewLandscapeCell: FoodsListCollectionViewCell {
     }
 }
 
-class FoodsListCollectionViewSquareCell: FoodsListCollectionViewCell {
+class ShopCollectionViewSquareCell: ShopCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

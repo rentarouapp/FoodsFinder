@@ -1,5 +1,5 @@
 //
-//  HPViewModel.swift
+//  ShopsFetchViewModel.swift
 //  FoodsFinder
 //
 //  Created by 上條蓮太朗 on 2023/12/22.
@@ -10,7 +10,7 @@ import Combine
 import Reachability
 
 @MainActor
-final class HPViewModel: NSObject, ObservableObject {
+final class ShopsFetchViewModel: NSObject, ObservableObject {
     @Published var shopInfoResponse: ShopInfoResponse = .init(result: nil)
     @Published var isFetching: Bool = false
     // EmptyViewの表示内容

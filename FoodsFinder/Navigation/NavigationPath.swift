@@ -17,7 +17,7 @@ enum ViewPath: Int{
     @ViewBuilder
     func Destination() -> some View{
         switch self {
-        case .hp: HPView()
+        case .hp: ShopsSearchView()
         case .login: LoginView()
         case .signup: SignUpView()
         }

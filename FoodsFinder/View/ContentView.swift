@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var showSheet: Bool = false
     
     var body: some View {
-        FoodListContainer()
+        ShopsGridViewControllerContainer()
 //        HPView()
 //            .sheet(isPresented: $showSheet) {
 //                LoginView()

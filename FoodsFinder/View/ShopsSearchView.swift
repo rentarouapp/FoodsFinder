@@ -1,5 +1,5 @@
 //
-//  HPView.swift
+//  ShopsSearchView.swift
 //  FoodsFinder
 //
 //  Created by 上條蓮太朗 on 2024/01/13.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct HPView: View {
+struct ShopsSearchView: View {
     
     var body: some View {
         TabView {
-            HPListView()
+            ShopsListView()
                 .tabItem {
                     VStack {
                         Image(systemName: "magnifyingglass")
@@ -37,6 +37,6 @@ struct HPView: View {
 }
 
 #Preview {
-    HPView()
+    ShopsSearchView()
 }
 
