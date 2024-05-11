@@ -171,9 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				B78BED202B35C7BB005A05C6 /* FoodsFinderApp.swift */,
-				B78BED4C2B35C8B0005A05C6 /* Model */,
-				B78BED4B2B35C8A4005A05C6 /* ViewModel */,
-				B78BED4A2B35C89C005A05C6 /* View */,
+				B78BED4C2B35C8B0005A05C6 /* Models */,
+				B78BED4B2B35C8A4005A05C6 /* ViewModels */,
+				B78BED4A2B35C89C005A05C6 /* Views */,
 				B7C97ED72BECF86800E9A64E /* UIKit */,
 				B7D417482B5233E5002A1C24 /* Navigation */,
 				B7D4175E2B528BC1002A1C24 /* Interactor */,
@@ -215,7 +215,7 @@
 			path = FoodsFinderUITests;
 			sourceTree = "<group>";
 		};
-		B78BED4A2B35C89C005A05C6 /* View */ = {
+		B78BED4A2B35C89C005A05C6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B78BED222B35C7BB005A05C6 /* ContentView.swift */,
@@ -231,27 +231,27 @@
 				B7D417652B52AB4E002A1C24 /* CompleteView.swift */,
 				B7D417572B52845C002A1C24 /* ViewExtension.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		B78BED4B2B35C8A4005A05C6 /* ViewModel */ = {
+		B78BED4B2B35C8A4005A05C6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				B7C6326C2B35DA86006B1E4E /* ShopsFetchViewModel.swift */,
 				B7E3DB822B3F1B9800903FA1 /* LoginViewModel.swift */,
 				B7D417612B528D1D002A1C24 /* AlertViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		B78BED4C2B35C8B0005A05C6 /* Model */ = {
+		B78BED4C2B35C8B0005A05C6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				B7C6325A2B35CBF7006B1E4E /* ShopInfo.swift */,
 				B7C632612B35CE82006B1E4E /* Mock.swift */,
 				B7E3DB842B3F1CD500903FA1 /* LoginModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B7B1683B2B368F2100F521D9 /* Frameworks */ = {
