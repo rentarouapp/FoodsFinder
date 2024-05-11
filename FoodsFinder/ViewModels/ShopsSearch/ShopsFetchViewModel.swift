@@ -13,6 +13,7 @@ import Reachability
 final class ShopsFetchViewModel: NSObject, ObservableObject {
     @Published var shopInfoResponse: ShopInfoResponse = .init(result: nil)
     @Published var isFetching: Bool = false
+    @Published var isSearched: Bool = false
     // EmptyViewの表示内容
     @Published var type: EmptyViewType = .initial
     
@@ -21,6 +22,8 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
     private let errorSubject = PassthroughSubject<APIServiceError, Never>()
     private let onShopSearchSubject = PassthroughSubject<ShopInfoRequest, Never>()
     private var cancellables: [AnyCancellable] = []
+    
+    var fetchedHandler: (() -> Void)?
     
     private func requestSend(request: ShopInfoRequest) {
         apiService.requestWithCombine(with: request)
@@ -40,6 +43,7 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
             }, receiveValue: { [weak self] value in
                 guard let self = self else { return }
                 self.isFetching = false
+                self.isSearched = true
                 self.shopInfoResponse = value
                 if self.shopInfoResponse.result?.shops?.count ?? 0 == 0 {
                     self.type = .noResult
@@ -50,6 +54,7 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
         self.errorSubject
             .sink(receiveValue: { error in
                 self.isFetching = false
+                self.isSearched = true
                 self.handleAPIError(error: error)
             })
             .store(in: &cancellables)
@@ -71,16 +76,20 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
                 .sink(receiveValue: { [weak self] (response) in
                     guard let self = self else { return }
                     self.isFetching = false
+                    self.isSearched = true
                     self.shopInfoResponse = response
                     if self.shopInfoResponse.result?.shops?.count ?? 0 == 0 {
                         self.type = .noResult
                     }
+                    self.fetchedHandler?()
                 }),
             // エラー
             self.errorSubject
                 .sink(receiveValue: { (error) in
                     self.isFetching = false
+                    self.isSearched = true
                     self.handleAPIError(error: error)
+                    self.fetchedHandler?()
                 })
         ]
     }
@@ -90,6 +99,7 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
             guard let self else { return }
             defer {
                 self.isFetching = false
+                self.isSearched = true
             }
             do {
                 self.shopInfoResponse = try await apiService.requestWithSwiftConcurrency(with: request)
@@ -121,6 +131,7 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
     // 通信をキャンセルする
     func cancel() {
         self.isFetching = false
+        self.isSearched = false
         self.cancellables.forEach { $0.cancel() }
         self.shopInfoResponse = .init(result: nil)
     }

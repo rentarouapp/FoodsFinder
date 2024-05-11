@@ -12,19 +12,7 @@ import Combine
 
 // MARK: - UIKit UIViewController
 final class ShopsGridViewController: UIViewController {
-    private let errorSubject = PassthroughSubject<APIServiceError, Never>()
-    private let onShopSearchSubject = PassthroughSubject<ShopInfoRequest, Never>()
-    private var cancellables = [AnyCancellable]()
-    
-    var bridge: ShopsGridViewBridge?
-    
-    var keyword: String = "" {
-        didSet {
-            if keyword.isEmpty {
-                reset()
-            }
-        }
-    }
+    var shopsFetchViewModel: ShopsFetchViewModel?
     
     private let sections: [Section] = [.large, .landscape, .square]
     
@@ -57,14 +45,12 @@ final class ShopsGridViewController: UIViewController {
             collectionView: collectionView,
             cellProvider: { [weak self] collectionView, indexPath, shopID in
                 guard let self,
-                      let shop = self.bridge?.shopRepository.shops[safe: indexPath.row] else { return UICollectionViewCell() }
+                      let shop = shopsFetchViewModel?.shopInfoResponse.result?.shops?[safe: indexPath.row] else { return nil }
                 return collectionView.dequeueConfiguredReusableCell(using: shopCellRegistration, for: indexPath, item: shop)
             }
         )
         return dataSource
     }()
-    
-    private let colors: [UIColor] = [.systemMint, .systemTeal, .systemCyan, .systemBlue, .systemIndigo]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,70 +58,20 @@ final class ShopsGridViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
         }
-        bridge?.viewController = self
+        shopsFetchViewModel?.fetchedHandler = { [weak self] in
+            guard let self else { return }
+            self.applySnapshot()
+        }
     }
     
     private func applySnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Shop.ID>()
-        snapshot.appendSections([.large])
-        snapshot.appendItems(bridge?.shopRepository.shopIDs ?? [], toSection: .large)
-        snapshot.reloadSections([.large])
-        dataSource.apply(snapshot, animatingDifferences: true)
-    }
-    
-    private func bind() {
-        let apiService = APIService()
-        // API通信をSubscribeする
-        onShopSearchSubject
-            .flatMap { [apiService] (request) in
-                apiService.requestWithCombine(with: request)
-                    .catch { [weak self] error -> Empty<ShopInfoResponse, Never> in
-                        if let self = self {
-                            self.errorSubject.send(error)
-                        }
-                        return .init()
-                    }
-            }
-            .sink { [weak self] (response) in
-                guard let self = self else { return }
-                self.bridge?.shopRepository.shops = response.result?.shops ?? []
-                self.bridge?.isSearched = true
-                self.bridge?.isFetching = false
-                self.applySnapshot()
-            }
-            .store(in: &cancellables)
-        // 流れてきたエラーをSubscribeする
-        errorSubject
-            .sink(receiveValue: { [weak self] error in
-                guard let self else { return }
-                // ここでエラーをさばく
-                self.bridge?.isSearched = true
-                self.bridge?.isFetching = false
-                print(error.localizedDescription)
-            })
-            .store(in: &cancellables)
-    }
-    
-    func resumeSearch() {
-        bridge?.isFetching = true
-        reset()
-        bind()
-        onShopSearchSubject.send(ShopInfoRequest(keyword: keyword))
-    }
-    
-    private func reset() {
-        cancellables.forEach { $0.cancel() }
-        bridge?.reset()
-    }
-}
-
-// MARK: - Items
-final class ShopRepository {
-    var shops = [Shop]()
-    var shopIDs: [Shop.ID] { shops.map(\.id) }
-    var isEmpty: Bool {
-        get {
-            shops.isEmpty
+        if let shopIDs: [Shop.ID] = shopsFetchViewModel?.shopInfoResponse.result?.shops?.map({ $0.id }),
+           !shopIDs.isEmpty {
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Shop.ID>()
+            snapshot.appendSections([.large])
+            snapshot.appendItems(shopIDs, toSection: .large)
+            snapshot.reloadSections([.large])
+            dataSource.apply(snapshot, animatingDifferences: false)
         }
     }
 }
@@ -214,38 +150,22 @@ enum Section {
     }
 }
 
-@MainActor
-class ShopsGridViewBridge: ObservableObject {
-    var viewController: ShopsGridViewController?
-    @Published var shopRepository = ShopRepository()
-    @Published var isSearched = false
-    @Published var isFetching = false
-    
-    func reset() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            self.shopRepository.shops.removeAll()
-            self.isSearched = false
-        }
-    }
-}
-
 // MARK: - Container
 struct ShopsGridViewControllerContainer: View {
     @FocusState var focus: Bool
     @State private var searchText: String = ""
-    @StateObject private var bridge: ShopsGridViewBridge = ShopsGridViewBridge()
+    @StateObject private var shopsFetchViewModel = ShopsFetchViewModel()
     
     var body: some View {
         NavigationStack {
             ZStack {
                 ShopsGridViewControllerWrapper(keyword: searchText,
-                                               bridge: bridge)
+                                               shopsFetchViewModel: shopsFetchViewModel)
                 .navigationTitle("お店を探す")
                 
-                if bridge.shopRepository.isEmpty {
+                if shopsFetchViewModel.shopInfoResponse.result?.shops?.isEmpty ?? true {
                     Color(.white)
-                    if bridge.isSearched {
+                    if shopsFetchViewModel.isSearched {
                         Text("検索結果なし")
                     } else {
                         Text("なにもなし")
@@ -254,31 +174,37 @@ struct ShopsGridViewControllerContainer: View {
             }
         }
         .searchable(text: $searchText)
+        .onChange(of: searchText) { newValue in
+            if newValue == "" {
+                // クリアボタンがおされた
+                self.focus = false
+                self.shopsFetchViewModel.cancel()
+            }
+        }
         .onSubmit(of: .search) {
-            // 決定キー押された
             if !searchText.isEmpty {
                 focus = false
-                bridge.viewController?.resumeSearch()
+                shopsFetchViewModel.resumeSearch(keyword: searchText)
             }
         }
         .focused(self.$focus)
-        .PKHUD(isPresented: $bridge.isFetching, HUDContent: .progress)
+        .PKHUD(isPresented: $shopsFetchViewModel.isFetching, HUDContent: .progress)
     }
 }
 
 // MARK: - SwiftUI UIViewControllerRepresentable
 struct ShopsGridViewControllerWrapper: UIViewControllerRepresentable {
     let keyword: String
-    let bridge: ShopsGridViewBridge
+    let shopsFetchViewModel: ShopsFetchViewModel
     
     func makeUIViewController(context: Context) -> ShopsGridViewController {
         let shopsGridViewController = ShopsGridViewController()
-        shopsGridViewController.bridge = bridge
+        shopsGridViewController.shopsFetchViewModel = shopsFetchViewModel
         return shopsGridViewController
     }
     
     func updateUIViewController(_ uiViewController: ShopsGridViewController, context: Context) {
-        uiViewController.keyword = keyword
+        
     }
     
 }
