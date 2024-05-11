@@ -20,25 +20,25 @@ class ShopCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let foodContentView: UIView = {
-        let foodContentView = UIView()
-        foodContentView.translatesAutoresizingMaskIntoConstraints = false
-        foodContentView.layer.cornerRadius = 16
-        return foodContentView
+    let shopContentView: UIView = {
+        let shopContentView = UIView()
+        shopContentView.translatesAutoresizingMaskIntoConstraints = false
+        shopContentView.layer.cornerRadius = 16
+        return shopContentView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(foodContentView)
-        foodContentView.addSubview(titleLabel)
-        foodContentView.snp.makeConstraints {
+        contentView.addSubview(shopContentView)
+        shopContentView.addSubview(titleLabel)
+        shopContentView.snp.makeConstraints {
             $0.top.left.bottom.right.equalToSuperview()
         }
         titleLabel.snp.makeConstraints {
             $0.top.left.bottom.right.equalToSuperview()
         }
-        foodContentView.backgroundColor = .cyan
+        shopContentView.backgroundColor = .cyan
     }
     
     func bindData(shop: Shop) {
@@ -54,7 +54,7 @@ class ShopCollectionViewLargeCell: ShopCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        foodContentView.backgroundColor = .red
+        shopContentView.backgroundColor = .red
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +66,7 @@ class ShopCollectionViewLandscapeCell: ShopCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        foodContentView.backgroundColor = .green
+        shopContentView.backgroundColor = .green
     }
     
     required init?(coder: NSCoder) {
@@ -78,7 +78,7 @@ class ShopCollectionViewSquareCell: ShopCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        foodContentView.backgroundColor = .blue
+        shopContentView.backgroundColor = .blue
     }
     
     required init?(coder: NSCoder) {
