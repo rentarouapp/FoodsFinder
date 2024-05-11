@@ -24,8 +24,6 @@
 		B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C632662B35D1BB006B1E4E /* APIService.swift */; };
 		B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C632682B35D1F9006B1E4E /* APIRequest.swift */; };
 		B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326A2B35D89E006B1E4E /* Constants.swift */; };
-		B7C97EDD2BECF99E00E9A64E /* ShopsGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EDC2BECF99E00E9A64E /* ShopsGridViewController.swift */; };
-		B7C97EDF2BECFDF100E9A64E /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EDE2BECFDF100E9A64E /* ShopCollectionViewCell.swift */; };
 		B7C97EE22BECFEDD00E9A64E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7C97EE12BECFEDD00E9A64E /* SnapKit */; };
 		B7C97EE62BEE3BC300E9A64E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EE52BEE3BC300E9A64E /* Extension.swift */; };
 		B7C97EEA2BEF63D100E9A64E /* ShopsFetchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97EE92BEF63D100E9A64E /* ShopsFetchViewModel.swift */; };
@@ -45,6 +43,8 @@
 		B7C97F0E2BEF65C500E9A64E /* ShopsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F042BEF65C500E9A64E /* ShopsSearchView.swift */; };
 		B7C97F0F2BEF65C500E9A64E /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F052BEF65C500E9A64E /* FavoriteListView.swift */; };
 		B7C97F122BEF661D00E9A64E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F112BEF661D00E9A64E /* ViewExtension.swift */; };
+		B7C97F182BEF66C000E9A64E /* ShopsGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F152BEF66C000E9A64E /* ShopsGridViewController.swift */; };
+		B7C97F192BEF66C000E9A64E /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F172BEF66C000E9A64E /* ShopCollectionViewCell.swift */; };
 		B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417492B52341B002A1C24 /* NavigationPath.swift */; };
 		B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417512B527FFA002A1C24 /* PKHUDView.swift */; };
 		B7D417542B5280EB002A1C24 /* PKHUDModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */; };
@@ -87,8 +87,6 @@
 		B7C632662B35D1BB006B1E4E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		B7C632682B35D1F9006B1E4E /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		B7C6326A2B35D89E006B1E4E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B7C97EDC2BECF99E00E9A64E /* ShopsGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsGridViewController.swift; sourceTree = "<group>"; };
-		B7C97EDE2BECFDF100E9A64E /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		B7C97EE52BEE3BC300E9A64E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B7C97EE92BEF63D100E9A64E /* ShopsFetchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsFetchViewModel.swift; sourceTree = "<group>"; };
 		B7C97EEC2BEF63E600E9A64E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -107,6 +105,8 @@
 		B7C97F042BEF65C500E9A64E /* ShopsSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsSearchView.swift; sourceTree = "<group>"; };
 		B7C97F052BEF65C500E9A64E /* FavoriteListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		B7C97F112BEF661D00E9A64E /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		B7C97F152BEF66C000E9A64E /* ShopsGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsGridViewController.swift; sourceTree = "<group>"; };
+		B7C97F172BEF66C000E9A64E /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		B7D417492B52341B002A1C24 /* NavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPath.swift; sourceTree = "<group>"; };
 		B7D417512B527FFA002A1C24 /* PKHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDView.swift; sourceTree = "<group>"; };
 		B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDModifier.swift; sourceTree = "<group>"; };
@@ -274,26 +274,9 @@
 		B7C97ED72BECF86800E9A64E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				B7C97ED92BECF97D00E9A64E /* Views */,
-				B7C97ED82BECF96800E9A64E /* ViewControllers */,
+				B7C97F132BEF66C000E9A64E /* ShopsSearch */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		B7C97ED82BECF96800E9A64E /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				B7C97EDC2BECF99E00E9A64E /* ShopsGridViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		B7C97ED92BECF97D00E9A64E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B7C97EDE2BECFDF100E9A64E /* ShopCollectionViewCell.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		B7C97EE82BEF63D100E9A64E /* ShopsSearch */ = {
@@ -374,6 +357,15 @@
 				B7C97F112BEF661D00E9A64E /* ViewExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B7C97F132BEF66C000E9A64E /* ShopsSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B7C97F152BEF66C000E9A64E /* ShopsGridViewController.swift */,
+				B7C97F172BEF66C000E9A64E /* ShopCollectionViewCell.swift */,
+			);
+			path = ShopsSearch;
 			sourceTree = "<group>";
 		};
 		B7D417482B5233E5002A1C24 /* Navigation */ = {
@@ -564,7 +556,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7C97EDF2BECFDF100E9A64E /* ShopCollectionViewCell.swift in Sources */,
 				B7D417682B538B08002A1C24 /* AlertService.swift in Sources */,
 				B7C97F0E2BEF65C500E9A64E /* ShopsSearchView.swift in Sources */,
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
@@ -580,7 +571,6 @@
 				B7D4175D2B5289B3002A1C24 /* CustomAlertEntity.swift in Sources */,
 				B7C97F0A2BEF65C500E9A64E /* EmptyView.swift in Sources */,
 				B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */,
-				B7C97EDD2BECF99E00E9A64E /* ShopsGridViewController.swift in Sources */,
 				B7C97EF72BEF64B200E9A64E /* Mock.swift in Sources */,
 				B7C97EED2BEF63E600E9A64E /* LoginViewModel.swift in Sources */,
 				B7C97EF02BEF640F00E9A64E /* AlertViewModel.swift in Sources */,
@@ -590,11 +580,13 @@
 				B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */,
 				B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */,
 				B7C97F0C2BEF65C500E9A64E /* ShopDescriptionView.swift in Sources */,
+				B7C97F192BEF66C000E9A64E /* ShopCollectionViewCell.swift in Sources */,
 				B7C97F082BEF65C500E9A64E /* CompleteView.swift in Sources */,
 				B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */,
 				B7C97EF62BEF64B200E9A64E /* ShopInfo.swift in Sources */,
 				B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */,
 				B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */,
+				B7C97F182BEF66C000E9A64E /* ShopsGridViewController.swift in Sources */,
 				B7D417542B5280EB002A1C24 /* PKHUDModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
