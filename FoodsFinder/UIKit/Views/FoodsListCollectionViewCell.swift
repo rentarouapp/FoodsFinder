@@ -38,6 +38,7 @@ class FoodsListCollectionViewCell: UICollectionViewCell {
         titleLabel.snp.makeConstraints {
             $0.top.left.bottom.right.equalToSuperview()
         }
+        foodContentView.backgroundColor = .cyan
     }
     
     func bindData(shop: Shop) {

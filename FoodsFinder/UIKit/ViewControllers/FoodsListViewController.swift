@@ -18,12 +18,6 @@ final class FoodsListViewController: UIViewController {
     
     var bridge: FoodsListBridge?
     
-    var shops = [Shop]() {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
-    
     var keyword: String = "" {
         didSet {
             if keyword.isEmpty {
@@ -50,16 +44,24 @@ final class FoodsListViewController: UIViewController {
             frame: .zero,
             collectionViewLayout: collectionViewLayout
         )
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(FoodsListCollectionViewLargeCell.self,
-                                forCellWithReuseIdentifier: FoodsListCollectionViewLargeCell.resuseIdentifier)
-        collectionView.register(FoodsListCollectionViewLandscapeCell.self,
-                                forCellWithReuseIdentifier: FoodsListCollectionViewLandscapeCell.resuseIdentifier)
-        collectionView.register(FoodsListCollectionViewSquareCell.self,
-                                forCellWithReuseIdentifier: FoodsListCollectionViewSquareCell.resuseIdentifier)
-        
         return collectionView
+    }()
+    
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Shop.ID> = {
+        
+        let shopCellRegistration = UICollectionView.CellRegistration<FoodsListCollectionViewCell, Shop> { cell, indexPath, shop in
+            cell.titleLabel.text = shop.name
+        }
+        
+        let dataSource = UICollectionViewDiffableDataSource<Section, Shop.ID>(
+            collectionView: collectionView,
+            cellProvider: { [weak self] collectionView, indexPath, shopID in
+                guard let self,
+                      let shop = self.bridge?.shopRepository.shops[safe: indexPath.row] else { return UICollectionViewCell() }
+                return collectionView.dequeueConfiguredReusableCell(using: shopCellRegistration, for: indexPath, item: shop)
+            }
+        )
+        return dataSource
     }()
     
     private let colors: [UIColor] = [.systemMint, .systemTeal, .systemCyan, .systemBlue, .systemIndigo]
@@ -71,6 +73,14 @@ final class FoodsListViewController: UIViewController {
             $0.top.left.right.bottom.equalToSuperview()
         }
         bridge?.viewController = self
+    }
+    
+    private func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Shop.ID>()
+        snapshot.appendSections([.large])
+        snapshot.appendItems(bridge?.shopRepository.shopIDs ?? [], toSection: .large)
+        snapshot.reloadSections([.large])
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     private func bind() {
@@ -88,11 +98,10 @@ final class FoodsListViewController: UIViewController {
             }
             .sink { [weak self] (response) in
                 guard let self = self else { return }
-                self.shops = response.result?.shops ?? []
-                self.bridge?.shops = self.shops
+                self.bridge?.shopRepository.shops = response.result?.shops ?? []
                 self.bridge?.isSearched = true
                 self.bridge?.isFetching = false
-                self.collectionView.reloadData()
+                self.applySnapshot()
             }
             .store(in: &cancellables)
         // 流れてきたエラーをSubscribeする
@@ -115,64 +124,19 @@ final class FoodsListViewController: UIViewController {
     }
     
     private func reset() {
-        shops.removeAll()
         cancellables.forEach { $0.cancel() }
-        bridgeReset()
+        bridge?.reset()
     }
-    
-    private func bridgeReset() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            self.bridge?.shops.removeAll()
-            self.bridge?.isSearched = false
-        }
-    }
-    
 }
 
-extension FoodsListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sections.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        shops.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.section {
-        case 0:
-            if let largeCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FoodsListCollectionViewLargeCell.self),
-                                                                  for: indexPath) as? FoodsListCollectionViewLargeCell {
-                if let shop = shops[safe: indexPath.row] {
-                    largeCell.bindData(shop: shop)
-                }
-                return largeCell
-            }
-        case 1:
-            if let landScapeCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FoodsListCollectionViewLandscapeCell.self),
-                                                                      for: indexPath) as? FoodsListCollectionViewLandscapeCell {
-                if let shop = shops[safe: indexPath.row] {
-                    landScapeCell.bindData(shop: shop)
-                }
-                return landScapeCell
-            }
-        case 2:
-            if let squareCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FoodsListCollectionViewSquareCell.self),
-                                                                   for: indexPath) as? FoodsListCollectionViewSquareCell {
-                if let shop = shops[safe: indexPath.row] {
-                    squareCell.bindData(shop: shop)
-                }
-                return squareCell
-            }
-        default:
-            break
+// MARK: - Items
+final class ShopRepository {
+    var shops = [Shop]()
+    var shopIDs: [Shop.ID] { shops.map(\.id) }
+    var isEmpty: Bool {
+        get {
+            shops.isEmpty
         }
-        return .init()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
 }
 
@@ -253,9 +217,17 @@ enum Section {
 @MainActor
 class FoodsListBridge: ObservableObject {
     var viewController: FoodsListViewController?
-    @Published var shops = [Shop]()
+    @Published var shopRepository = ShopRepository()
     @Published var isSearched = false
     @Published var isFetching = false
+    
+    func reset() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.shopRepository.shops.removeAll()
+            self.isSearched = false
+        }
+    }
 }
 
 // MARK: - Container
@@ -271,7 +243,7 @@ struct FoodListContainer: View {
                                                bridge: bridge)
                 .navigationTitle("お店を探す")
                 
-                if bridge.shops.count == 0 {
+                if bridge.shopRepository.isEmpty {
                     Color(.white)
                     if bridge.isSearched {
                         Text("検索結果なし")
