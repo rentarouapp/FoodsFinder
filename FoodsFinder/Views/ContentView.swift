@@ -9,14 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showSheet: Bool = false
-    
     var body: some View {
-        ShopsGridViewControllerContainer()
-//        HPView()
-//            .sheet(isPresented: $showSheet) {
-//                LoginView()
-//            }
+        //ShopsGridViewControllerContainer()
+        ShopsListView()
     }
 }
 

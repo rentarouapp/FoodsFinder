@@ -341,12 +341,12 @@
 		B7C97EFF2BEF65C500E9A64E /* ShopsSearch */ = {
 			isa = PBXGroup;
 			children = (
-				B7C97F002BEF65C500E9A64E /* EmptyView.swift */,
+				B7C97F032BEF65C500E9A64E /* ShopsListView.swift */,
 				B7C97F012BEF65C500E9A64E /* ShopItemView.swift */,
 				B7C97F022BEF65C500E9A64E /* ShopDescriptionView.swift */,
-				B7C97F032BEF65C500E9A64E /* ShopsListView.swift */,
-				B7C97F042BEF65C500E9A64E /* ShopsSearchView.swift */,
+				B7C97F002BEF65C500E9A64E /* EmptyView.swift */,
 				B7C97F052BEF65C500E9A64E /* FavoriteListView.swift */,
+				B7C97F042BEF65C500E9A64E /* ShopsSearchView.swift */,
 			);
 			path = ShopsSearch;
 			sourceTree = "<group>";

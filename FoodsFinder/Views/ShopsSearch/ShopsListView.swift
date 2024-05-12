@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct ShopsListView: View {
-    
-    // ViewModel
-    @StateObject private var hpViewModel = ShopsFetchViewModel()
+    @StateObject private var shopsFetchViewModel = ShopsFetchViewModel()
     @FocusState var focus: Bool
     @State private var searchText: String = ""
 
-    
     var body: some View {
-        let shops = self.hpViewModel.shopInfoResponse.result?.shops ?? []
+        let shops = shopsFetchViewModel.shopInfoResponse.result?.shops ?? []
         
         NavigationStack {
             List(shops) { shop in
@@ -43,23 +40,22 @@ struct ShopsListView: View {
             if newValue == "" {
                 // クリアボタンがおされた
                 self.focus = false
-                self.hpViewModel.cancel()
-                //self.hpViewModel.type = .initial
+                self.shopsFetchViewModel.cancel()
             }
         }
         .onSubmit(of: .search) {
             // 決定キー押された
             if !self.searchText.isEmpty {
                 self.focus = false
-                self.hpViewModel.resumeSearch(keyword: self.searchText)
+                self.shopsFetchViewModel.resumeSearch(keyword: self.searchText)
             }
         }
         .focused(self.$focus)
-        .PKHUD(isPresented: $hpViewModel.isFetching, HUDContent: .progress)
+        .PKHUD(isPresented: $shopsFetchViewModel.isFetching, HUDContent: .progress)
     }
 }
 
-struct HPListView_Previews: PreviewProvider {
+struct ShopsListView_Previews: PreviewProvider {
     static var previews: some View {
         ShopsListView()
     }
