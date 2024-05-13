@@ -45,6 +45,8 @@
 		B7C97F122BEF661D00E9A64E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F112BEF661D00E9A64E /* ViewExtension.swift */; };
 		B7C97F182BEF66C000E9A64E /* ShopsGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F152BEF66C000E9A64E /* ShopsGridViewController.swift */; };
 		B7C97F192BEF66C000E9A64E /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F172BEF66C000E9A64E /* ShopCollectionViewCell.swift */; };
+		B7C97F1B2BF0710F00E9A64E /* ShopsGridSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F1A2BF0710F00E9A64E /* ShopsGridSection.swift */; };
+		B7C97F1D2BF0716D00E9A64E /* ShopsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F1C2BF0716D00E9A64E /* ShopsGridView.swift */; };
 		B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417492B52341B002A1C24 /* NavigationPath.swift */; };
 		B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417512B527FFA002A1C24 /* PKHUDView.swift */; };
 		B7D417542B5280EB002A1C24 /* PKHUDModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */; };
@@ -107,6 +109,8 @@
 		B7C97F112BEF661D00E9A64E /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		B7C97F152BEF66C000E9A64E /* ShopsGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsGridViewController.swift; sourceTree = "<group>"; };
 		B7C97F172BEF66C000E9A64E /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
+		B7C97F1A2BF0710F00E9A64E /* ShopsGridSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsGridSection.swift; sourceTree = "<group>"; };
+		B7C97F1C2BF0716D00E9A64E /* ShopsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsGridView.swift; sourceTree = "<group>"; };
 		B7D417492B52341B002A1C24 /* NavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPath.swift; sourceTree = "<group>"; };
 		B7D417512B527FFA002A1C24 /* PKHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDView.swift; sourceTree = "<group>"; };
 		B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDModifier.swift; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 			children = (
 				B7C97EF22BEF64B200E9A64E /* ShopInfo.swift */,
 				B7C97EF32BEF64B200E9A64E /* Mock.swift */,
+				B7C97F1A2BF0710F00E9A64E /* ShopsGridSection.swift */,
 			);
 			path = ShopsSearch;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				B7C97F032BEF65C500E9A64E /* ShopsListView.swift */,
+				B7C97F1C2BF0716D00E9A64E /* ShopsGridView.swift */,
 				B7C97F012BEF65C500E9A64E /* ShopItemView.swift */,
 				B7C97F022BEF65C500E9A64E /* ShopDescriptionView.swift */,
 				B7C97F002BEF65C500E9A64E /* EmptyView.swift */,
@@ -556,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C97F1D2BF0716D00E9A64E /* ShopsGridView.swift in Sources */,
 				B7D417682B538B08002A1C24 /* AlertService.swift in Sources */,
 				B7C97F0E2BEF65C500E9A64E /* ShopsSearchView.swift in Sources */,
 				B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */,
@@ -583,6 +590,7 @@
 				B7C97F192BEF66C000E9A64E /* ShopCollectionViewCell.swift in Sources */,
 				B7C97F082BEF65C500E9A64E /* CompleteView.swift in Sources */,
 				B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */,
+				B7C97F1B2BF0710F00E9A64E /* ShopsGridSection.swift in Sources */,
 				B7C97EF62BEF64B200E9A64E /* ShopInfo.swift in Sources */,
 				B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */,
 				B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */,
