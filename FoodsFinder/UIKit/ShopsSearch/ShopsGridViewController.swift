@@ -91,7 +91,6 @@ final class ShopsGridViewController: UIViewController {
 
 // MARK: - Wrapper
 struct ShopsGridViewControllerWrapper: UIViewControllerRepresentable {
-    let keyword: String
     let shopsFetchViewModel: ShopsFetchViewModel
     
     func makeUIViewController(context: Context) -> ShopsGridViewController {
@@ -106,5 +105,5 @@ struct ShopsGridViewControllerWrapper: UIViewControllerRepresentable {
 }
 
 #Preview {
-    ShopsGridViewControllerWrapper(keyword: "", shopsFetchViewModel: ShopsFetchViewModel())
+    ShopsGridViewControllerWrapper(shopsFetchViewModel: ShopsFetchViewModel())
 }

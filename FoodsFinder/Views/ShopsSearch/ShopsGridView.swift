@@ -15,8 +15,7 @@ struct ShopsGridView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                ShopsGridViewControllerWrapper(keyword: searchText,
-                                               shopsFetchViewModel: shopsFetchViewModel)
+                ShopsGridViewControllerWrapper(shopsFetchViewModel: shopsFetchViewModel)
                 .navigationTitle("お店を探す")
                 
                 if shopsFetchViewModel.shopInfoResponse.result?.shops?.isEmpty ?? true {
