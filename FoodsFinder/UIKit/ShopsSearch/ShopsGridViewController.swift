@@ -37,7 +37,7 @@ final class ShopsGridViewController: UIViewController {
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<ShopsGridSection, Shop.ID> = {
         let shopCellRegistration = UICollectionView.CellRegistration<ShopCollectionViewCell, Shop> { cell, indexPath, shop in
-            cell.titleLabel.text = shop.name
+            cell.bindData(shop: shop)
         }
         let dataSource = UICollectionViewDiffableDataSource<ShopsGridSection, Shop.ID>(
             collectionView: collectionView,
