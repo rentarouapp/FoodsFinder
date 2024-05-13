@@ -67,6 +67,11 @@ final class ShopsGridViewController: UIViewController {
         if let shopIDs: [Shop.ID] = shopsFetchViewModel?.shopInfoResponse.result?.shops?.map({ $0.id }) {
             var snapshot = NSDiffableDataSourceSnapshot<ShopsGridSection, Shop.ID>()
             snapshot.appendSections([.large, .landscape, .square])
+            if shopIDs.count < 3 {
+                snapshot.appendItems(shopIDs, toSection: .large)
+                dataSource.apply(snapshot, animatingDifferences: false)
+                snapshot.reloadSections([.large])
+            }
             if shopIDs.count > 2 {
                 let shopIDsLarge: [Shop.ID] = Array(shopIDs[0...2])
                 snapshot.appendItems(shopIDsLarge, toSection: .large)
