@@ -48,6 +48,7 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
                 if self.shopInfoResponse.result?.shops?.count ?? 0 == 0 {
                     self.type = .noResult
                 }
+                self.fetchedHandler?()
             })
             .store(in: &cancellables)
         
@@ -56,6 +57,7 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
                 self.isFetching = false
                 self.isSearched = true
                 self.handleAPIError(error: error)
+                self.fetchedHandler?()
             })
             .store(in: &cancellables)
     }
@@ -100,6 +102,7 @@ final class ShopsFetchViewModel: NSObject, ObservableObject {
             defer {
                 self.isFetching = false
                 self.isSearched = true
+                self.fetchedHandler?()
             }
             do {
                 self.shopInfoResponse = try await apiService.requestWithSwiftConcurrency(with: request)
