@@ -18,3 +18,18 @@ extension View {
         modifier(CustomAlertModifier(alertEntity: alertEntity))
     }
 }
+
+// MARK: - Navigation Example
+extension View {
+    func setNavigationDestination() -> some View {
+        modifier(NavigationDestination())
+    }
+    
+    func setContentButton(color: Color) -> some View {
+        modifier(ContentButton(color: color))
+    }
+    
+    func setBackButtons() -> some View {
+        modifier(BackButtons())
+    }
+}

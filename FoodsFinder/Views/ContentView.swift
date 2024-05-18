@@ -10,8 +10,15 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        ShopsGridView()
+        // MARK: - CompositionalLayout/DiffableDatasourceのサンプル
+        //ShopsGridView()
+        
+        // MARK: - Combine/Swift Concurrencyのリクエストサンプル
         //ShopsListView()
+        
+        // MARK: - ナビゲーションのサンプル
+        NavigationExampleTopView()
+            .environmentObject(NavigationRouter())
     }
 }
 

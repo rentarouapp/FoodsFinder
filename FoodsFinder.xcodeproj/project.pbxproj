@@ -54,6 +54,11 @@
 		B7D4175D2B5289B3002A1C24 /* CustomAlertEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */; };
 		B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */; };
 		B7D417682B538B08002A1C24 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417672B538B08002A1C24 /* AlertService.swift */; };
+		B7F9510F2BF85B7600AE101A /* RootViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9510E2BF85B7600AE101A /* RootViews.swift */; };
+		B7F951112BF85B8600AE101A /* ChildViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951102BF85B8600AE101A /* ChildViews.swift */; };
+		B7F951142BF85C6000AE101A /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951132BF85C6000AE101A /* NavigationModifier.swift */; };
+		B7F9511A2BF85D0A00AE101A /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951192BF85D0A00AE101A /* NavigationRouter.swift */; };
+		B7F9511C2BF85DB200AE101A /* NavigationExampleTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9511B2BF85DB200AE101A /* NavigationExampleTopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +123,11 @@
 		B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertEntity.swift; sourceTree = "<group>"; };
 		B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationInteractor.swift; sourceTree = "<group>"; };
 		B7D417672B538B08002A1C24 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		B7F9510E2BF85B7600AE101A /* RootViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViews.swift; sourceTree = "<group>"; };
+		B7F951102BF85B8600AE101A /* ChildViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViews.swift; sourceTree = "<group>"; };
+		B7F951132BF85C6000AE101A /* NavigationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModifier.swift; sourceTree = "<group>"; };
+		B7F951192BF85D0A00AE101A /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		B7F9511B2BF85DB200AE101A /* NavigationExampleTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExampleTopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +187,7 @@
 				B78BED202B35C7BB005A05C6 /* FoodsFinderApp.swift */,
 				B78BED4C2B35C8B0005A05C6 /* Models */,
 				B78BED4B2B35C8A4005A05C6 /* ViewModels */,
+				B7F951122BF85C3A00AE101A /* Modifiers */,
 				B78BED4A2B35C89C005A05C6 /* Views */,
 				B7C97ED72BECF86800E9A64E /* UIKit */,
 				B7D417482B5233E5002A1C24 /* Navigation */,
@@ -223,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				B78BED222B35C7BB005A05C6 /* ContentView.swift */,
+				B7F9510D2BF85B3E00AE101A /* NavigationExample */,
 				B7C97EFF2BEF65C500E9A64E /* ShopsSearch */,
 				B7C97EFB2BEF65C500E9A64E /* Login */,
 				B7C97EF92BEF65C500E9A64E /* Setting */,
@@ -236,6 +248,7 @@
 			children = (
 				B7C97EE82BEF63D100E9A64E /* ShopsSearch */,
 				B7C97EEE2BEF640F00E9A64E /* UI */,
+				B7F951182BF85CF100AE101A /* NavigationExample */,
 				B7C97EEB2BEF63E600E9A64E /* Login */,
 			);
 			path = ViewModels;
@@ -416,6 +429,32 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		B7F9510D2BF85B3E00AE101A /* NavigationExample */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9511B2BF85DB200AE101A /* NavigationExampleTopView.swift */,
+				B7F9510E2BF85B7600AE101A /* RootViews.swift */,
+				B7F951102BF85B8600AE101A /* ChildViews.swift */,
+			);
+			path = NavigationExample;
+			sourceTree = "<group>";
+		};
+		B7F951122BF85C3A00AE101A /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				B7F951132BF85C6000AE101A /* NavigationModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		B7F951182BF85CF100AE101A /* NavigationExample */ = {
+			isa = PBXGroup;
+			children = (
+				B7F951192BF85D0A00AE101A /* NavigationRouter.swift */,
+			);
+			path = NavigationExample;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -573,24 +612,29 @@
 				B7C97F072BEF65C500E9A64E /* LoginView.swift in Sources */,
 				B7C97F0F2BEF65C500E9A64E /* FavoriteListView.swift in Sources */,
 				B7D4175B2B5289A2002A1C24 /* CustomAlertModifier.swift in Sources */,
+				B7F951142BF85C6000AE101A /* NavigationModifier.swift in Sources */,
 				B7C97F0D2BEF65C500E9A64E /* ShopsListView.swift in Sources */,
 				B7C97F092BEF65C500E9A64E /* SignUpView.swift in Sources */,
 				B7D4175D2B5289B3002A1C24 /* CustomAlertEntity.swift in Sources */,
 				B7C97F0A2BEF65C500E9A64E /* EmptyView.swift in Sources */,
 				B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */,
 				B7C97EF72BEF64B200E9A64E /* Mock.swift in Sources */,
+				B7F951112BF85B8600AE101A /* ChildViews.swift in Sources */,
 				B7C97EED2BEF63E600E9A64E /* LoginViewModel.swift in Sources */,
 				B7C97EF02BEF640F00E9A64E /* AlertViewModel.swift in Sources */,
 				B7C97F0B2BEF65C500E9A64E /* ShopItemView.swift in Sources */,
 				B7C97EEA2BEF63D100E9A64E /* ShopsFetchViewModel.swift in Sources */,
 				B7C97EF82BEF64B200E9A64E /* LoginModel.swift in Sources */,
+				B7F9511A2BF85D0A00AE101A /* NavigationRouter.swift in Sources */,
 				B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */,
 				B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */,
 				B7C97F0C2BEF65C500E9A64E /* ShopDescriptionView.swift in Sources */,
+				B7F9510F2BF85B7600AE101A /* RootViews.swift in Sources */,
 				B7C97F192BEF66C000E9A64E /* ShopCollectionViewCell.swift in Sources */,
 				B7C97F082BEF65C500E9A64E /* CompleteView.swift in Sources */,
 				B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */,
 				B7C97F1B2BF0710F00E9A64E /* ShopsGridSection.swift in Sources */,
+				B7F9511C2BF85DB200AE101A /* NavigationExampleTopView.swift in Sources */,
 				B7C97EF62BEF64B200E9A64E /* ShopInfo.swift in Sources */,
 				B7C632672B35D1BB006B1E4E /* APIService.swift in Sources */,
 				B7C632692B35D1F9006B1E4E /* APIRequest.swift in Sources */,
