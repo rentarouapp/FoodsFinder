@@ -17,8 +17,11 @@ struct ContentView: View {
         //ShopsListView()
         
         // MARK: - ナビゲーションのサンプル
-        NavigationExampleTopView()
-            .environmentObject(NavigationRouter())
+//        NavigationExampleTopView()
+//            .environmentObject(NavigationRouter())
+        
+        // MARK: - タップ時アニメーションのサンプル
+        OpenAnimationView()
     }
 }
 
