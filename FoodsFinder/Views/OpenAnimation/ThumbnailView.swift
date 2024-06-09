@@ -41,29 +41,15 @@ struct ThumbnailView: View {
     }
     
     var body: some View {
-        ZStack {
-            if isDetailed {
-                VStack {
-                    Image(appleHero.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: height/2)
-                    Text(appleHero.name)
-                        .font(.largeTitle)
-                        .bold()
-                    Spacer()
-                        .frame(maxHeight: .infinity)
-                }
-            } else {
-                Image(appleHero.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: height)
-            }
+        VStack {
+            Image(appleHero.imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: width, height: 300)
+            .cornerRadius(20)
+            .gesture(viewTapGesture)
         }
-        .frame(width: width, height: height)
-        .cornerRadius(isDetailed ? 0 : 20)
-        .gesture(viewTapGesture)
+        .background(Color.clear)
     }
 }
 

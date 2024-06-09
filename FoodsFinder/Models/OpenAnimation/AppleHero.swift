@@ -7,12 +7,14 @@
 
 import Foundation
 
-enum AppleHero {
+enum AppleHero: Identifiable, Hashable, CaseIterable {
     case tim
     case crag
     case john
     case jony
     case jobs
+    
+    var id: Self { self }
     
     var name: String {
         switch self {
