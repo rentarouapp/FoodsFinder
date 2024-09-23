@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,6 +63,7 @@
 		B7F951142BF85C6000AE101A /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951132BF85C6000AE101A /* NavigationModifier.swift */; };
 		B7F9511A2BF85D0A00AE101A /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951192BF85D0A00AE101A /* NavigationRouter.swift */; };
 		B7F9511C2BF85DB200AE101A /* NavigationExampleTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9511B2BF85DB200AE101A /* NavigationExampleTopView.swift */; };
+		B7FC2CFA2CA12B5300FA3849 /* CocoaNetworkingMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B168462B36911000F521D9 /* PKHUD in Frameworks */,
+				B7FC2CFA2CA12B5300FA3849 /* CocoaNetworkingMonitor in Frameworks */,
 				B7B168492B36919B00F521D9 /* Reachability in Frameworks */,
 				B7B1683D2B368F2100F521D9 /* FirebaseAnalytics in Frameworks */,
 				B7B1683F2B368F2900F521D9 /* FirebaseAuth in Frameworks */,
@@ -505,6 +507,7 @@
 				B7B168452B36911000F521D9 /* PKHUD */,
 				B7B168482B36919B00F521D9 /* Reachability */,
 				B7C97EE12BECFEDD00E9A64E /* SnapKit */,
+				B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */,
 			);
 			productName = FoodsFinder;
 			productReference = B78BED1D2B35C7BB005A05C6 /* FoodsFinder.app */;
@@ -583,6 +586,7 @@
 				B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				B7B168472B36919B00F521D9 /* XCRemoteSwiftPackageReference "Reachability" */,
 				B7C97EE02BECFEDD00E9A64E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B7FC2CF82CA12B5300FA3849 /* XCLocalSwiftPackageReference "../../iOSS/CocoaNetworkingMonitor" */,
 			);
 			productRefGroup = B78BED1E2B35C7BB005A05C6 /* Products */;
 			projectDirPath = "";
@@ -1006,6 +1010,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		B7FC2CF82CA12B5300FA3849 /* XCLocalSwiftPackageReference "../../iOSS/CocoaNetworkingMonitor" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../iOSS/CocoaNetworkingMonitor;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1066,6 +1077,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7C97EE02BECFEDD00E9A64E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CocoaNetworkingMonitor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
