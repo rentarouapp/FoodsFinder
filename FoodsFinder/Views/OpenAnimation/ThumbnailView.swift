@@ -8,34 +8,24 @@
 import SwiftUI
 
 struct ThumbnailView: View {
-    @State private var isDetailed: Bool = false
-    @Binding var showDetailHero: AppleHero? {
-        willSet {
-            isDetailed = newValue?.name == appleHero.name
-        }
-    }
+    @Binding var showDetailHero: AppleHero?
     var appleHero: AppleHero
     
-    private let image: Image = Image(systemName: "star")
     private let text: String = "test"
     
     private var width: CGFloat {
-        isDetailed ? UIScreen.main.bounds.width : UIScreen.main.bounds.width - 16 * 2
+        UIScreen.main.bounds.width - 16 * 2
     }
     
     private var height: CGFloat {
-        isDetailed ? UIScreen.main.bounds.height : 300
+        300
     }
     
     private var viewTapGesture: some Gesture {
         TapGesture()
             .onEnded {
                 withAnimation(.spring()) {
-                    if showDetailHero == nil {
-                        showDetailHero = appleHero
-                    } else {
-                        showDetailHero = nil
-                    }
+                    showDetailHero = appleHero
                 }
             }
     }

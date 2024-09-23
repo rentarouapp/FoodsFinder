@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         // MARK: - CompositionalLayout/DiffableDatasourceのサンプル
@@ -17,8 +18,8 @@ struct ContentView: View {
         //ShopsListView()
         
         // MARK: - ナビゲーションのサンプル
-//        NavigationExampleTopView()
-//            .environmentObject(NavigationRouter())
+        //        NavigationExampleTopView()
+        //            .environmentObject(NavigationRouter())
         
         // MARK: - タップ時アニメーションのサンプル
         OpenAnimationView()
