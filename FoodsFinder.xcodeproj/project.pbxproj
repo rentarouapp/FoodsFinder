@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7674F882CA14D44003D9F7A /* CocoaNetworkingMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = B7674F872CA14D44003D9F7A /* CocoaNetworkingMonitor */; };
 		B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED202B35C7BB005A05C6 /* FoodsFinderApp.swift */; };
 		B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED222B35C7BB005A05C6 /* ContentView.swift */; };
 		B78BED252B35C7BF005A05C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B78BED242B35C7BF005A05C6 /* Assets.xcassets */; };
@@ -145,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B168462B36911000F521D9 /* PKHUD in Frameworks */,
+				B7674F882CA14D44003D9F7A /* CocoaNetworkingMonitor in Frameworks */,
 				B7FC2CFA2CA12B5300FA3849 /* CocoaNetworkingMonitor in Frameworks */,
 				B7B168492B36919B00F521D9 /* Reachability in Frameworks */,
 				B7B1683D2B368F2100F521D9 /* FirebaseAnalytics in Frameworks */,
@@ -508,6 +510,7 @@
 				B7B168482B36919B00F521D9 /* Reachability */,
 				B7C97EE12BECFEDD00E9A64E /* SnapKit */,
 				B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */,
+				B7674F872CA14D44003D9F7A /* CocoaNetworkingMonitor */,
 			);
 			productName = FoodsFinder;
 			productReference = B78BED1D2B35C7BB005A05C6 /* FoodsFinder.app */;
@@ -586,7 +589,7 @@
 				B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				B7B168472B36919B00F521D9 /* XCRemoteSwiftPackageReference "Reachability" */,
 				B7C97EE02BECFEDD00E9A64E /* XCRemoteSwiftPackageReference "SnapKit" */,
-				B7FC2CF82CA12B5300FA3849 /* XCLocalSwiftPackageReference "../../iOSS/CocoaNetworkingMonitor" */,
+				B7674F862CA14D44003D9F7A /* XCRemoteSwiftPackageReference "CocoaNetworkingMonitor" */,
 			);
 			productRefGroup = B78BED1E2B35C7BB005A05C6 /* Products */;
 			projectDirPath = "";
@@ -1010,14 +1013,15 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		B7FC2CF82CA12B5300FA3849 /* XCLocalSwiftPackageReference "../../iOSS/CocoaNetworkingMonitor" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../iOSS/CocoaNetworkingMonitor;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
+		B7674F862CA14D44003D9F7A /* XCRemoteSwiftPackageReference "CocoaNetworkingMonitor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rentarouapp/CocoaNetworkingMonitor.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pkluz/PKHUD.git";
@@ -1053,6 +1057,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B7674F872CA14D44003D9F7A /* CocoaNetworkingMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7674F862CA14D44003D9F7A /* XCRemoteSwiftPackageReference "CocoaNetworkingMonitor" */;
+			productName = CocoaNetworkingMonitor;
+		};
 		B7B1683C2B368F2100F521D9 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B7C632702B368D67006B1E4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
