@@ -14,6 +14,8 @@
 		B78BED322B35C7BF005A05C6 /* FoodsFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED312B35C7BF005A05C6 /* FoodsFinderTests.swift */; };
 		B78BED3C2B35C7BF005A05C6 /* FoodsFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED3B2B35C7BF005A05C6 /* FoodsFinderUITests.swift */; };
 		B78BED3E2B35C7BF005A05C6 /* FoodsFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED3D2B35C7BF005A05C6 /* FoodsFinderUITestsLaunchTests.swift */; };
+		B790BD452D13C366003A0A7E /* ShopsFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B790BD442D13C358003A0A7E /* ShopsFeatureView.swift */; };
+		B790BD482D13C3FF003A0A7E /* ShopsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B790BD472D13C3FA003A0A7E /* ShopsFeature.swift */; };
 		B7A3E7342CA450FE00E670B0 /* CocoaNetworkingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3E7332CA450FB00E670B0 /* CocoaNetworkingProvider.swift */; };
 		B7A83CF42C0AD60E00F45C5A /* OpenAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A83CF32C0AD60E00F45C5A /* OpenAnimationView.swift */; };
 		B7A83CF72C0AD7E600F45C5A /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A83CF62C0AD7E600F45C5A /* ThumbnailView.swift */; };
@@ -96,6 +98,8 @@
 		B78BED372B35C7BF005A05C6 /* FoodsFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodsFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78BED3B2B35C7BF005A05C6 /* FoodsFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsFinderUITests.swift; sourceTree = "<group>"; };
 		B78BED3D2B35C7BF005A05C6 /* FoodsFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B790BD442D13C358003A0A7E /* ShopsFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsFeatureView.swift; sourceTree = "<group>"; };
+		B790BD472D13C3FA003A0A7E /* ShopsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsFeature.swift; sourceTree = "<group>"; };
 		B7A3E7332CA450FB00E670B0 /* CocoaNetworkingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaNetworkingProvider.swift; sourceTree = "<group>"; };
 		B7A83CF32C0AD60E00F45C5A /* OpenAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAnimationView.swift; sourceTree = "<group>"; };
 		B7A83CF62C0AD7E600F45C5A /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				B78BED202B35C7BB005A05C6 /* FoodsFinderApp.swift */,
 				B78BED4C2B35C8B0005A05C6 /* Models */,
 				B78BED4B2B35C8A4005A05C6 /* ViewModels */,
+				B790BD462D13C3EB003A0A7E /* Features */,
 				B7F951122BF85C3A00AE101A /* Modifiers */,
 				B78BED4A2B35C89C005A05C6 /* Views */,
 				B7C97ED72BECF86800E9A64E /* UIKit */,
@@ -278,6 +283,14 @@
 				B7C97EF42BEF64B200E9A64E /* Login */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B790BD462D13C3EB003A0A7E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B790BD472D13C3FA003A0A7E /* ShopsFeature.swift */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 		B7A3E7302CA450A500E670B0 /* App */ = {
@@ -402,6 +415,7 @@
 		B7C97EFF2BEF65C500E9A64E /* ShopsSearch */ = {
 			isa = PBXGroup;
 			children = (
+				B790BD442D13C358003A0A7E /* ShopsFeatureView.swift */,
 				B7C97F032BEF65C500E9A64E /* ShopsListView.swift */,
 				B7C97F1C2BF0716D00E9A64E /* ShopsGridView.swift */,
 				B7C97F012BEF65C500E9A64E /* ShopItemView.swift */,
@@ -655,6 +669,7 @@
 				B7A83CF72C0AD7E600F45C5A /* ThumbnailView.swift in Sources */,
 				B7C97F062BEF65C500E9A64E /* SettingView.swift in Sources */,
 				B7C97F122BEF661D00E9A64E /* ViewExtension.swift in Sources */,
+				B790BD482D13C3FF003A0A7E /* ShopsFeature.swift in Sources */,
 				B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */,
 				B7C97F072BEF65C500E9A64E /* LoginView.swift in Sources */,
 				B7C97F0F2BEF65C500E9A64E /* FavoriteListView.swift in Sources */,
@@ -681,6 +696,7 @@
 				B7F9510F2BF85B7600AE101A /* RootViews.swift in Sources */,
 				B7DB8ED92C26985500E0A555 /* ThumbnailDetailView.swift in Sources */,
 				B7C97F192BEF66C000E9A64E /* ShopCollectionViewCell.swift in Sources */,
+				B790BD452D13C366003A0A7E /* ShopsFeatureView.swift in Sources */,
 				B7C97F082BEF65C500E9A64E /* CompleteView.swift in Sources */,
 				B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */,
 				B7A83CFA2C0CB48A00F45C5A /* AppleHero.swift in Sources */,

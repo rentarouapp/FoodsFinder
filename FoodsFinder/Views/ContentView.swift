@@ -16,6 +16,9 @@ struct ContentView: View {
     private let monitor = CocoaNetworkingMonitor.shared
     
     var body: some View {
+        // MARK: - TCAを使ってリクエスト等するサンプル
+        ShopsFeatureView()
+        
         // MARK: - CompositionalLayout/DiffableDatasourceのサンプル
         //ShopsGridView()
         
@@ -27,24 +30,24 @@ struct ContentView: View {
         //            .environmentObject(NavigationRouter())
         
         // MARK: - タップ時アニメーションのサンプル
-        OpenAnimationView()
-            .onChange(of: scenePhase) { phase in
-                switch phase {
-                case .active:
-                    monitor.startMonitoring()
-                case .background:
-                    monitor.cancelMonitoring()
-                default:
-                    break
-                }
-            }
-            .alert("ネットワークエラー",
-                   isPresented: $provider.isShowUnsatisfiedAlert,
-                   actions: {
-                
-            }, message: {
-                Text("ネットワークの接続が切れました")
-            })
+//        OpenAnimationView()
+//            .onChange(of: scenePhase) { phase in
+//                switch phase {
+//                case .active:
+//                    monitor.startMonitoring()
+//                case .background:
+//                    monitor.cancelMonitoring()
+//                default:
+//                    break
+//                }
+//            }
+//            .alert("ネットワークエラー",
+//                   isPresented: $provider.isShowUnsatisfiedAlert,
+//                   actions: {
+//                
+//            }, message: {
+//                Text("ネットワークの接続が切れました")
+//            })
     }
 }
 
