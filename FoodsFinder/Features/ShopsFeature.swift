@@ -13,6 +13,7 @@ struct ShopsFeature {
     @ObservableState
     struct State: Equatable {
         var shops = Array<Shop>()
+        var isFetching = false
     }
     
     enum Action: Equatable {
@@ -21,12 +22,13 @@ struct ShopsFeature {
         case resetShops // お店一覧をリセット
     }
     
-    private let apiService = APIService()
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case let .fetchShops(keyword):
+                state.isFetching = true
                 return .run { send in
+                    let apiService = APIService()
                     let request = ShopInfoRequest(keyword: keyword)
                     let shops = try await apiService.requestWithSwiftConcurrency(with: request).result?.shops ?? []
                     await send(
@@ -35,10 +37,12 @@ struct ShopsFeature {
                 }
                 
             case let .setShops(shops):
+                state.isFetching = false
                 state.shops = shops
                 return .none
                 
             case .resetShops:
+                state.shops = []
                 return .none
             }
         }
