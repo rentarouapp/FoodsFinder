@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ShopsFeatureView: View {
     var body: some View {

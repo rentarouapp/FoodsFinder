@@ -23,7 +23,7 @@ struct Result: Codable {
     }
 }
 
-struct Shop: Codable, Identifiable {
+struct Shop: Codable, Identifiable, Equatable {
     let id: String?
     let name: String?
     let logoImage: String?
@@ -43,18 +43,18 @@ struct Shop: Codable, Identifiable {
     }
 }
 
-struct ShopUrl: Codable {
+struct ShopUrl: Codable, Equatable {
     let pc: String?
 }
 
-struct ShopPhoto: Codable {
+struct ShopPhoto: Codable, Equatable {
     let mobilePhotoObj: ShopPhotoMobile?
     enum CodingKeys: String, CodingKey {
         case mobilePhotoObj = "mobile"
     }
 }
 
-struct ShopPhotoMobile: Codable {
+struct ShopPhotoMobile: Codable, Equatable {
     let large: String?
     let small: String?
     enum CodingKeys: String, CodingKey {

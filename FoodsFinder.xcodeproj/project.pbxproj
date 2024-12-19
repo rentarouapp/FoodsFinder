@@ -16,6 +16,7 @@
 		B78BED3E2B35C7BF005A05C6 /* FoodsFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED3D2B35C7BF005A05C6 /* FoodsFinderUITestsLaunchTests.swift */; };
 		B790BD452D13C366003A0A7E /* ShopsFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B790BD442D13C358003A0A7E /* ShopsFeatureView.swift */; };
 		B790BD482D13C3FF003A0A7E /* ShopsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B790BD472D13C3FA003A0A7E /* ShopsFeature.swift */; };
+		B790BD4B2D13C5B7003A0A7E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B790BD4A2D13C5B7003A0A7E /* ComposableArchitecture */; };
 		B7A3E7342CA450FE00E670B0 /* CocoaNetworkingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3E7332CA450FB00E670B0 /* CocoaNetworkingProvider.swift */; };
 		B7A83CF42C0AD60E00F45C5A /* OpenAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A83CF32C0AD60E00F45C5A /* OpenAnimationView.swift */; };
 		B7A83CF72C0AD7E600F45C5A /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A83CF62C0AD7E600F45C5A /* ThumbnailView.swift */; };
@@ -157,6 +158,7 @@
 				B7B168492B36919B00F521D9 /* Reachability in Frameworks */,
 				B7B1683D2B368F2100F521D9 /* FirebaseAnalytics in Frameworks */,
 				B7B1683F2B368F2900F521D9 /* FirebaseAuth in Frameworks */,
+				B790BD4B2D13C5B7003A0A7E /* ComposableArchitecture in Frameworks */,
 				B7C97EE22BECFEDD00E9A64E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +538,7 @@
 				B7C97EE12BECFEDD00E9A64E /* SnapKit */,
 				B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */,
 				B7E1EE4A2CA162AF0061A1AD /* CocoaNetworkingMonitor */,
+				B790BD4A2D13C5B7003A0A7E /* ComposableArchitecture */,
 			);
 			productName = FoodsFinder;
 			productReference = B78BED1D2B35C7BB005A05C6 /* FoodsFinder.app */;
@@ -615,6 +618,7 @@
 				B7B168472B36919B00F521D9 /* XCRemoteSwiftPackageReference "Reachability" */,
 				B7C97EE02BECFEDD00E9A64E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B7E1EE492CA162AF0061A1AD /* XCLocalSwiftPackageReference "../../iOSS/CocoaNetworkingMonitor" */,
+				B790BD492D13C5B7003A0A7E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = B78BED1E2B35C7BB005A05C6 /* Products */;
 			projectDirPath = "";
@@ -1049,6 +1053,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B790BD492D13C5B7003A0A7E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.16.1;
+			};
+		};
 		B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pkluz/PKHUD.git";
@@ -1084,6 +1096,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B790BD4A2D13C5B7003A0A7E /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B790BD492D13C5B7003A0A7E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		B7B1683C2B368F2100F521D9 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B7C632702B368D67006B1E4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
