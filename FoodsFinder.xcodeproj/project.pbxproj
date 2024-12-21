@@ -215,7 +215,6 @@
 				B7D4175E2B528BC1002A1C24 /* Interactor */,
 				B7D417592B528992002A1C24 /* Alert */,
 				B7D417502B527FE0002A1C24 /* PKHUD */,
-				B7D4174D2B524DA6002A1C24 /* Service */,
 				B7C632652B35D1A4006B1E4E /* API */,
 				B7C6325E2B35CE40006B1E4E /* Util */,
 				B78BED242B35C7BF005A05C6 /* Assets.xcassets */,
@@ -452,13 +451,6 @@
 				B7D417492B52341B002A1C24 /* NavigationPath.swift */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		B7D4174D2B524DA6002A1C24 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		B7D417502B527FE0002A1C24 /* PKHUD */ = {
