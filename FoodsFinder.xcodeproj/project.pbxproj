@@ -145,6 +145,7 @@
 		B7F951132BF85C6000AE101A /* NavigationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModifier.swift; sourceTree = "<group>"; };
 		B7F951192BF85D0A00AE101A /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		B7F9511B2BF85DB200AE101A /* NavigationExampleTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExampleTopView.swift; sourceTree = "<group>"; };
+		B7FB28D72D23850C0062FF6A /* FoodsFinderPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FoodsFinderPackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +184,7 @@
 		B78BED142B35C7BB005A05C6 = {
 			isa = PBXGroup;
 			children = (
+				B7FB28D72D23850C0062FF6A /* FoodsFinderPackage */,
 				B78BED1F2B35C7BB005A05C6 /* FoodsFinder */,
 				B78BED302B35C7BF005A05C6 /* FoodsFinderTests */,
 				B78BED3A2B35C7BF005A05C6 /* FoodsFinderUITests */,
