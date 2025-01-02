@@ -1,8 +1,8 @@
 //
-//  ShopsFeature.swift
-//  FoodsFinder
+//  ShopFeature.swift
+//  FoodsFinderPackage
 //
-//  Created by 上條蓮太朗 on 2024/12/19.
+//  Created by 上條蓮太朗 on 2024/12/31.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import ComposableArchitecture
 @Reducer
 struct ShopsFeature {
     @ObservableState
-    struct State: Equatable {
+    public struct State: Equatable {
         var shops = Array<Shop>()
         var isFetching = false
     }

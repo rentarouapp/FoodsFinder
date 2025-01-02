@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import SwiftUI
 import Combine
+import Foods
 
 final class ShopsGridViewController: UIViewController {
     var shopsFetchViewModel: ShopsFetchViewModel?

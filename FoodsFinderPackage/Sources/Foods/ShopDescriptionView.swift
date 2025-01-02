@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-struct ShopDescriptionView: View {
+public struct ShopDescriptionView: View {
     
     var shop: Shop
     
-    var body: some View {
+    public init(shop: Shop) {
+        self.shop = shop
+    }
+    
+    public var body: some View {
         ScrollView {
             VStack {
                 Text("🍺")

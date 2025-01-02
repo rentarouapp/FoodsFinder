@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foods
 
 struct ShopsListView: View {
     @StateObject private var shopsFetchViewModel = ShopsFetchViewModel()

@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import Foods
 
 class ShopCollectionViewCell: UICollectionViewCell {
     
@@ -85,7 +86,7 @@ struct ShopCollectionViewCell_Previews_Square: PreviewProvider {
 struct ShopCollectionViewCellWrapper: UIViewRepresentable {
     func makeUIView(context: Context) -> ShopCollectionViewCell {
         let cell = ShopCollectionViewCell()
-        cell.bindData(shop: Mock.shop1)
+        //cell.bindData(shop: Mock.shop1)
         return cell
     }
     

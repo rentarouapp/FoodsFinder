@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Reachability
+import Foods
 
 @MainActor
 final class ShopsFetchViewModel: NSObject, ObservableObject {

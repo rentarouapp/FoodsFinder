@@ -1,13 +1,13 @@
 //
 //  APIRequest.swift
-//  FoodsFinder
+//  FoodsFinderPackage
 //
-//  Created by 上條蓮太朗 on 2023/12/22.
+//  Created by 上條蓮太朗 on 2025/01/02.
 //
 
 import Foundation
 
-protocol APIRequestType {
+public protocol APIRequestType {
     associatedtype Response: Decodable
     
     var path: String { get }
@@ -15,25 +15,29 @@ protocol APIRequestType {
     func generateURLRequest() -> URLRequest?
 }
 
-struct ShopInfoRequest: APIRequestType {
-    typealias Response = ShopInfoResponse
+public struct ShopInfoRequest: APIRequestType {
     
-    var path: String {
-        return Constants.hpSearchURLBaseString
+    let hpSearchURLBaseString: String = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
+    let hpApiKey = "59a38c7007ae784b"
+    
+    public typealias Response = ShopInfoResponse
+    
+    public var path: String {
+        return hpSearchURLBaseString
     }
-    var queryItems: [URLQueryItem]? {
+    public var queryItems: [URLQueryItem]? {
         return [
             .init(name: "keyword", value: self.keyword),
-            .init(name: "key", value: Constants.hpApiKey),
+            .init(name: "key", value: hpApiKey),
             .init(name: "format", value: "json")
         ]
     }
     public let keyword: String
-    init(keyword: String) {
+    public init(keyword: String) {
         self.keyword = keyword
     }
     
-    func generateURLRequest() -> URLRequest? {
+    public func generateURLRequest() -> URLRequest? {
         guard let pathURL = URL(string: path, relativeTo: URL(string: path)),
               var urlComponents = URLComponents(url: pathURL, resolvingAgainstBaseURL: true) else {
             return nil

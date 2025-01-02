@@ -1,20 +1,33 @@
 //
-//  ShopsFeatureView.swift
-//  FoodsFinder
+//  ShopView.swift
+//  FoodsFinderPackage
 //
-//  Created by 上條蓮太朗 on 2024/12/19.
+//  Created by 上條蓮太朗 on 2025/01/02.
 //
 
 import SwiftUI
 import ComposableArchitecture
 
-struct ShopsFeatureView: View {
+public struct ShopWrapView: View {
+    
+    public init() {}
+    
+    public var body: some View {
+        ShopView(store: Store(
+            initialState: ShopsFeature.State(),
+            reducer: {
+                ShopsFeature()
+        }))
+    }
+}
+
+public struct ShopView: View {
     @FocusState var focus: Bool
     @State private var searchText: String = ""
     
     let store: StoreOf<ShopsFeature>
     
-    var body: some View {
+    public var body: some View {
         NavigationStack {
             List(store.shops) { shop in
                 ZStack {
@@ -56,7 +69,7 @@ struct ShopsFeatureView: View {
 }
 
 #Preview {
-    ShopsFeatureView(store: Store(
+    ShopView(store: Store(
         initialState: ShopsFeature.State(),
         reducer: {
             ShopsFeature()

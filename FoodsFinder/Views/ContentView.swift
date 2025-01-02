@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
+import Foods
 import CocoaNetworkingMonitor
 
 struct ContentView: View {
@@ -17,12 +17,8 @@ struct ContentView: View {
     private let monitor = CocoaNetworkingMonitor.shared
     
     var body: some View {
-        // MARK: - TCAを使ってリクエスト等するサンプル
-        ShopsFeatureView(store: Store(
-            initialState: ShopsFeature.State(),
-            reducer: {
-                ShopsFeature()
-        }))
+        // MARK: - マルチモジュール構成 & TCAを使ってリクエスト等するサンプル
+        ShopWrapView()
         
         // MARK: - CompositionalLayout/DiffableDatasourceのサンプル
         //ShopsGridView()
