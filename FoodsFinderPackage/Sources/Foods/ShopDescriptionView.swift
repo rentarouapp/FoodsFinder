@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Entity
 
 public struct ShopDescriptionView: View {
     

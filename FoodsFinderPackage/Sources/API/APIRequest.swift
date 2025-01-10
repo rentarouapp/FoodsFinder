@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Entity
 
 public protocol APIRequestType {
     associatedtype Response: Decodable

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B702DD432D2639C800BB0FF9 /* Foods in Frameworks */ = {isa = PBXBuildFile; productRef = B702DD422D2639C800BB0FF9 /* Foods */; };
+		B76D55822D313943009A1606 /* API in Frameworks */ = {isa = PBXBuildFile; productRef = B76D55812D313943009A1606 /* API */; };
+		B76D55842D313AAB009A1606 /* Entity in Frameworks */ = {isa = PBXBuildFile; productRef = B76D55832D313AAB009A1606 /* Entity */; };
 		B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED202B35C7BB005A05C6 /* FoodsFinderApp.swift */; };
 		B78BED232B35C7BB005A05C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED222B35C7BB005A05C6 /* ContentView.swift */; };
 		B78BED252B35C7BF005A05C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B78BED242B35C7BF005A05C6 /* Assets.xcassets */; };
@@ -137,10 +139,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B76D55822D313943009A1606 /* API in Frameworks */,
 				B702DD432D2639C800BB0FF9 /* Foods in Frameworks */,
 				B7B168462B36911000F521D9 /* PKHUD in Frameworks */,
 				B7E1EE4B2CA162AF0061A1AD /* CocoaNetworkingMonitor in Frameworks */,
 				B7FC2CFA2CA12B5300FA3849 /* CocoaNetworkingMonitor in Frameworks */,
+				B76D55842D313AAB009A1606 /* Entity in Frameworks */,
 				B7B168492B36919B00F521D9 /* Reachability in Frameworks */,
 				B7B1683D2B368F2100F521D9 /* FirebaseAnalytics in Frameworks */,
 				B7B1683F2B368F2900F521D9 /* FirebaseAuth in Frameworks */,
@@ -493,6 +497,8 @@
 				B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */,
 				B7E1EE4A2CA162AF0061A1AD /* CocoaNetworkingMonitor */,
 				B702DD422D2639C800BB0FF9 /* Foods */,
+				B76D55812D313943009A1606 /* API */,
+				B76D55832D313AAB009A1606 /* Entity */,
 			);
 			productName = FoodsFinder;
 			productReference = B78BED1D2B35C7BB005A05C6 /* FoodsFinder.app */;
@@ -1036,6 +1042,14 @@
 		B702DD422D2639C800BB0FF9 /* Foods */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Foods;
+		};
+		B76D55812D313943009A1606 /* API */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = API;
+		};
+		B76D55832D313AAB009A1606 /* Entity */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Entity;
 		};
 		B7B1683C2B368F2100F521D9 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

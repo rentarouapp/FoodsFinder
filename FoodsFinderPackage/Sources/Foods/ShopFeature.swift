@@ -7,6 +7,8 @@
 
 import SwiftUI
 import ComposableArchitecture
+import Entity
+import API
 
 @Reducer
 struct ShopsFeature {

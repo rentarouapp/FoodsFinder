@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import Foods
+import Entity
 
 class ShopCollectionViewCell: UICollectionViewCell {
     
