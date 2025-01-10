@@ -11,20 +11,23 @@ import Entity
 import API
 
 @Reducer
-struct ShopsFeature {
+public struct ShopsFeature {
     @ObservableState
     public struct State: Equatable {
-        var shops = Array<Shop>()
-        var isFetching = false
+        public var shops = Array<Shop>()
+        public var isFetching = false
+        public init() {}
     }
     
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case fetchShops(String) // キーワードをもらってお店一覧を取る
         case setShops([Shop]) // 取れたお店をStateにセットする
         case resetShops // お店一覧をリセット
     }
     
-    var body: some Reducer<State, Action> {
+    public init() {}
+    
+    public var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case let .fetchShops(keyword):

@@ -7,21 +7,22 @@ let package = Package(
     name: "FoodsFinderPackage",
     platforms: [.iOS(.v16)],
     products: [
-        .library(name: "Foods", targets: ["Foods"]),
+        .library(name: "Core", targets: ["Core"]),
         .library(name: "API", targets: ["API"]),
         .library(name: "Entity", targets: ["Entity"]),
+        .library(name: "View", targets: ["View"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.16.1")
     ],
     targets: [
-        .target(name: "Foods",
+        .target(name: "Core",
                 dependencies: [
                     "Entity",
                     "API",
                     .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
                 ],
-                path: "./Sources/Foods"
+                path: "./Sources/Core"
                ),
         .target(name: "API",
                 dependencies: [
@@ -32,6 +33,12 @@ let package = Package(
         .target(name: "Entity",
                 dependencies: [],
                 path: "./Sources/Entity"
+               ),
+        .target(name: "View",
+                dependencies: [
+                    "Core",
+                ],
+                path: "./Sources/View"
                ),
     ]
 )

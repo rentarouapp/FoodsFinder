@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import Foods
 import CocoaNetworkingMonitor
+import View
 
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase

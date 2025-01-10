@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 import ComposableArchitecture
 
 public struct ShopWrapView: View {

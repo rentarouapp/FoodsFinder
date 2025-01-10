@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B702DD432D2639C800BB0FF9 /* Foods in Frameworks */ = {isa = PBXBuildFile; productRef = B702DD422D2639C800BB0FF9 /* Foods */; };
 		B76D55822D313943009A1606 /* API in Frameworks */ = {isa = PBXBuildFile; productRef = B76D55812D313943009A1606 /* API */; };
 		B76D55842D313AAB009A1606 /* Entity in Frameworks */ = {isa = PBXBuildFile; productRef = B76D55832D313AAB009A1606 /* Entity */; };
 		B78BED212B35C7BB005A05C6 /* FoodsFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BED202B35C7BB005A05C6 /* FoodsFinderApp.swift */; };
@@ -57,6 +56,8 @@
 		B7D417682B538B08002A1C24 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417672B538B08002A1C24 /* AlertService.swift */; };
 		B7DB8ED92C26985500E0A555 /* ThumbnailDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB8ED82C26984C00E0A555 /* ThumbnailDetailView.swift */; };
 		B7E1EE4B2CA162AF0061A1AD /* CocoaNetworkingMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = B7E1EE4A2CA162AF0061A1AD /* CocoaNetworkingMonitor */; };
+		B7F941192D313FBC0053BA44 /* View in Frameworks */ = {isa = PBXBuildFile; productRef = B7F941182D313FBC0053BA44 /* View */; };
+		B7F9411B2D313FBF0053BA44 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = B7F9411A2D313FBF0053BA44 /* Core */; };
 		B7F9510F2BF85B7600AE101A /* RootViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9510E2BF85B7600AE101A /* RootViews.swift */; };
 		B7F951112BF85B8600AE101A /* ChildViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951102BF85B8600AE101A /* ChildViews.swift */; };
 		B7F951142BF85C6000AE101A /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951132BF85C6000AE101A /* NavigationModifier.swift */; };
@@ -140,9 +141,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76D55822D313943009A1606 /* API in Frameworks */,
-				B702DD432D2639C800BB0FF9 /* Foods in Frameworks */,
 				B7B168462B36911000F521D9 /* PKHUD in Frameworks */,
 				B7E1EE4B2CA162AF0061A1AD /* CocoaNetworkingMonitor in Frameworks */,
+				B7F9411B2D313FBF0053BA44 /* Core in Frameworks */,
+				B7F941192D313FBC0053BA44 /* View in Frameworks */,
 				B7FC2CFA2CA12B5300FA3849 /* CocoaNetworkingMonitor in Frameworks */,
 				B76D55842D313AAB009A1606 /* Entity in Frameworks */,
 				B7B168492B36919B00F521D9 /* Reachability in Frameworks */,
@@ -496,9 +498,10 @@
 				B7C97EE12BECFEDD00E9A64E /* SnapKit */,
 				B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */,
 				B7E1EE4A2CA162AF0061A1AD /* CocoaNetworkingMonitor */,
-				B702DD422D2639C800BB0FF9 /* Foods */,
 				B76D55812D313943009A1606 /* API */,
 				B76D55832D313AAB009A1606 /* Entity */,
+				B7F941182D313FBC0053BA44 /* View */,
+				B7F9411A2D313FBF0053BA44 /* Core */,
 			);
 			productName = FoodsFinder;
 			productReference = B78BED1D2B35C7BB005A05C6 /* FoodsFinder.app */;
@@ -1039,10 +1042,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B702DD422D2639C800BB0FF9 /* Foods */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Foods;
-		};
 		B76D55812D313943009A1606 /* API */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = API;
@@ -1079,6 +1078,14 @@
 		B7E1EE4A2CA162AF0061A1AD /* CocoaNetworkingMonitor */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CocoaNetworkingMonitor;
+		};
+		B7F941182D313FBC0053BA44 /* View */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = View;
+		};
+		B7F9411A2D313FBF0053BA44 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
 		};
 		B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */ = {
 			isa = XCSwiftPackageProductDependency;
