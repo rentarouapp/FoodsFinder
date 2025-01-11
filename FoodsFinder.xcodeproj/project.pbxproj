@@ -55,7 +55,6 @@
 		B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */; };
 		B7D417682B538B08002A1C24 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417672B538B08002A1C24 /* AlertService.swift */; };
 		B7DB8ED92C26985500E0A555 /* ThumbnailDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB8ED82C26984C00E0A555 /* ThumbnailDetailView.swift */; };
-		B7E1EE4B2CA162AF0061A1AD /* CocoaNetworkingMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = B7E1EE4A2CA162AF0061A1AD /* CocoaNetworkingMonitor */; };
 		B7F941192D313FBC0053BA44 /* View in Frameworks */ = {isa = PBXBuildFile; productRef = B7F941182D313FBC0053BA44 /* View */; };
 		B7F9411B2D313FBF0053BA44 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = B7F9411A2D313FBF0053BA44 /* Core */; };
 		B7F9510F2BF85B7600AE101A /* RootViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9510E2BF85B7600AE101A /* RootViews.swift */; };
@@ -63,7 +62,6 @@
 		B7F951142BF85C6000AE101A /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951132BF85C6000AE101A /* NavigationModifier.swift */; };
 		B7F9511A2BF85D0A00AE101A /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951192BF85D0A00AE101A /* NavigationRouter.swift */; };
 		B7F9511C2BF85DB200AE101A /* NavigationExampleTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9511B2BF85DB200AE101A /* NavigationExampleTopView.swift */; };
-		B7FC2CFA2CA12B5300FA3849 /* CocoaNetworkingMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,10 +140,8 @@
 			files = (
 				B76D55822D313943009A1606 /* API in Frameworks */,
 				B7B168462B36911000F521D9 /* PKHUD in Frameworks */,
-				B7E1EE4B2CA162AF0061A1AD /* CocoaNetworkingMonitor in Frameworks */,
 				B7F9411B2D313FBF0053BA44 /* Core in Frameworks */,
 				B7F941192D313FBC0053BA44 /* View in Frameworks */,
-				B7FC2CFA2CA12B5300FA3849 /* CocoaNetworkingMonitor in Frameworks */,
 				B76D55842D313AAB009A1606 /* Entity in Frameworks */,
 				B7B168492B36919B00F521D9 /* Reachability in Frameworks */,
 				B7B1683D2B368F2100F521D9 /* FirebaseAnalytics in Frameworks */,
@@ -496,8 +492,6 @@
 				B7B168452B36911000F521D9 /* PKHUD */,
 				B7B168482B36919B00F521D9 /* Reachability */,
 				B7C97EE12BECFEDD00E9A64E /* SnapKit */,
-				B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */,
-				B7E1EE4A2CA162AF0061A1AD /* CocoaNetworkingMonitor */,
 				B76D55812D313943009A1606 /* API */,
 				B76D55832D313AAB009A1606 /* Entity */,
 				B7F941182D313FBC0053BA44 /* View */,
@@ -1067,10 +1061,6 @@
 			package = B7C97EE02BECFEDD00E9A64E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		B7E1EE4A2CA162AF0061A1AD /* CocoaNetworkingMonitor */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CocoaNetworkingMonitor;
-		};
 		B7F941182D313FBC0053BA44 /* View */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = View;
@@ -1078,10 +1068,6 @@
 		B7F9411A2D313FBF0053BA44 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
-		};
-		B7FC2CF92CA12B5300FA3849 /* CocoaNetworkingMonitor */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CocoaNetworkingMonitor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
