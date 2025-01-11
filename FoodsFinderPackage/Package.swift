@@ -21,24 +21,20 @@ let package = Package(
                     "Entity",
                     "API",
                     .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                ],
-                path: "./Sources/Core"
+                ]
                ),
         .target(name: "API",
                 dependencies: [
                     "Entity",
-                ],
-                path: "./Sources/API"
+                ]
                ),
         .target(name: "Entity",
-                dependencies: [],
-                path: "./Sources/Entity"
+                dependencies: []
                ),
         .target(name: "View",
                 dependencies: [
                     "Core",
-                ],
-                path: "./Sources/View"
+                ]
                ),
     ]
 )
