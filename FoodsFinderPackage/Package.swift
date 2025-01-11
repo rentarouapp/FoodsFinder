@@ -13,7 +13,8 @@ let package = Package(
         .library(name: "View", targets: ["View"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.16.1")
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.16.1"),
+        .package(url: "https://github.com/rentarouapp/CocoaNetworkingMonitor.git", branch: "main"),
     ],
     targets: [
         .target(name: "Core",
@@ -21,6 +22,7 @@ let package = Package(
                     "Entity",
                     "API",
                     .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                    .product(name: "CocoaNetworkingMonitor", package: "CocoaNetworkingMonitor"),
                 ]
                ),
         .target(name: "API",

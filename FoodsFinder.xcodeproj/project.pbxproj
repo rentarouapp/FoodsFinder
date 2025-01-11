@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -580,7 +580,6 @@
 				B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				B7B168472B36919B00F521D9 /* XCRemoteSwiftPackageReference "Reachability" */,
 				B7C97EE02BECFEDD00E9A64E /* XCRemoteSwiftPackageReference "SnapKit" */,
-				B7E1EE492CA162AF0061A1AD /* XCLocalSwiftPackageReference "../../iOSS/CocoaNetworkingMonitor" */,
 			);
 			productRefGroup = B78BED1E2B35C7BB005A05C6 /* Products */;
 			projectDirPath = "";
@@ -998,13 +997,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		B7E1EE492CA162AF0061A1AD /* XCLocalSwiftPackageReference "../../iOSS/CocoaNetworkingMonitor" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../iOSS/CocoaNetworkingMonitor;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
