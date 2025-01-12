@@ -25,6 +25,8 @@ public struct ShopsFeature {
         case resetShops // お店一覧をリセット
     }
     
+    @Dependency(\.apiClient) private var apiClient
+    
     public init() {}
     
     public var body: some Reducer<State, Action> {
@@ -33,9 +35,7 @@ public struct ShopsFeature {
             case let .fetchShops(keyword):
                 state.isFetching = true
                 return .run { send in
-                    let apiService = APIService()
-                    let request = ShopInfoRequest(keyword: keyword)
-                    let shops = try await apiService.requestWithSwiftConcurrency(with: request).result?.shops ?? []
+                    let shops = try await apiClient.fetch(with: keyword).result?.shops ?? []
                     await send(
                         .setShops(shops)
                     )
