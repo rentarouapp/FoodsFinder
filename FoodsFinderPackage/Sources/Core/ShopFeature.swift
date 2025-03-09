@@ -19,10 +19,11 @@ public struct ShopsFeature {
         public init() {}
     }
     
-    public enum Action: Equatable {
+    public enum Action: BindableAction, Equatable {
         case fetchShops(String) // キーワードをもらってお店一覧を取る
         case setShops([Shop]) // 取れたお店をStateにセットする
         case resetShops // お店一覧をリセット
+        case binding(BindingAction<State>) // BindingStateの変更Action
     }
     
     @Dependency(\.apiClient) private var apiClient
@@ -30,6 +31,7 @@ public struct ShopsFeature {
     public init() {}
     
     public var body: some Reducer<State, Action> {
+        //BindingReducer()// BindingStateを使うためにこいつが必要
         Reduce { state, action in
             switch action {
             case let .fetchShops(keyword):
@@ -48,6 +50,9 @@ public struct ShopsFeature {
                 
             case .resetShops:
                 state.shops = []
+                return .none
+                
+            case .binding:
                 return .none
             }
         }
