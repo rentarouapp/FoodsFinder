@@ -25,7 +25,6 @@
 		B7B168412B368FA700F521D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7B168402B368FA700F521D9 /* GoogleService-Info.plist */; };
 		B7B168422B368FA700F521D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7B168402B368FA700F521D9 /* GoogleService-Info.plist */; };
 		B7B168432B368FA700F521D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7B168402B368FA700F521D9 /* GoogleService-Info.plist */; };
-		B7B168462B36911000F521D9 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B7B168452B36911000F521D9 /* PKHUD */; };
 		B7B168492B36919B00F521D9 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = B7B168482B36919B00F521D9 /* Reachability */; };
 		B7C6326B2B35D89E006B1E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6326A2B35D89E006B1E4E /* Constants.swift */; };
 		B7C97EE22BECFEDD00E9A64E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7C97EE12BECFEDD00E9A64E /* SnapKit */; };
@@ -139,7 +138,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76D55822D313943009A1606 /* API in Frameworks */,
-				B7B168462B36911000F521D9 /* PKHUD in Frameworks */,
 				B7F9411B2D313FBF0053BA44 /* Core in Frameworks */,
 				B7F941192D313FBC0053BA44 /* View in Frameworks */,
 				B76D55842D313AAB009A1606 /* Entity in Frameworks */,
@@ -489,7 +487,6 @@
 			packageProductDependencies = (
 				B7B1683C2B368F2100F521D9 /* FirebaseAnalytics */,
 				B7B1683E2B368F2900F521D9 /* FirebaseAuth */,
-				B7B168452B36911000F521D9 /* PKHUD */,
 				B7B168482B36919B00F521D9 /* Reachability */,
 				B7C97EE12BECFEDD00E9A64E /* SnapKit */,
 				B76D55812D313943009A1606 /* API */,
@@ -571,7 +568,6 @@
 			mainGroup = B78BED142B35C7BB005A05C6;
 			packageReferences = (
 				B7C632702B368D67006B1E4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				B7B168472B36919B00F521D9 /* XCRemoteSwiftPackageReference "Reachability" */,
 				B7C97EE02BECFEDD00E9A64E /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
@@ -993,14 +989,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pkluz/PKHUD.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.0;
-			};
-		};
 		B7B168472B36919B00F521D9 /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
@@ -1045,11 +1033,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7C632702B368D67006B1E4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
-		};
-		B7B168452B36911000F521D9 /* PKHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B7B168442B36911000F521D9 /* XCRemoteSwiftPackageReference "PKHUD" */;
-			productName = PKHUD;
 		};
 		B7B168482B36919B00F521D9 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;

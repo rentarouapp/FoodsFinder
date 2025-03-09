@@ -15,6 +15,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.16.1"),
         .package(url: "https://github.com/rentarouapp/CocoaNetworkingMonitor.git", .upToNextMajor(from: "0.1.0")),
+        .package(url: "https://github.com/pkluz/PKHUD.git", .upToNextMinor(from: "5.4.0")),
     ],
     targets: [
         .target(name: "Core",
@@ -36,6 +37,7 @@ let package = Package(
         .target(name: "View",
                 dependencies: [
                     "Core",
+                    "PKHUD",
                 ]
                ),
     ]
