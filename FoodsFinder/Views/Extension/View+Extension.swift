@@ -1,18 +1,13 @@
 //
-//  ViewExtension.swift
+//  View+Extension.swift
 //  FoodsFinder
 //
-//  Created by 上條蓮太朗 on 2024/01/13.
+//  Created by 上條蓮太朗 on 2025/03/09.
 //
 
 import SwiftUI
-import PKHUD
 
 extension View {
-    // HUD表示
-    public func PKHUD(isPresented: Binding<Bool>, HUDContent: HUDContentType) -> some View {
-        PKHUDModifier(isPresented: isPresented, hudContent: HUDContent, parent: self)
-    }
     // アラート表示
     func customAlert(for alertEntity: Binding<CustomAlertEntity>) -> some View {
         modifier(CustomAlertModifier(alertEntity: alertEntity))

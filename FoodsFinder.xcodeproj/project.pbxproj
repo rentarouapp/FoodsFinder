@@ -41,14 +41,11 @@
 		B7C97F0D2BEF65C500E9A64E /* ShopsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F032BEF65C500E9A64E /* ShopsListView.swift */; };
 		B7C97F0E2BEF65C500E9A64E /* ShopsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F042BEF65C500E9A64E /* ShopsSearchView.swift */; };
 		B7C97F0F2BEF65C500E9A64E /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F052BEF65C500E9A64E /* FavoriteListView.swift */; };
-		B7C97F122BEF661D00E9A64E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F112BEF661D00E9A64E /* ViewExtension.swift */; };
 		B7C97F182BEF66C000E9A64E /* ShopsGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F152BEF66C000E9A64E /* ShopsGridViewController.swift */; };
 		B7C97F192BEF66C000E9A64E /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F172BEF66C000E9A64E /* ShopCollectionViewCell.swift */; };
 		B7C97F1B2BF0710F00E9A64E /* ShopsGridSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F1A2BF0710F00E9A64E /* ShopsGridSection.swift */; };
 		B7C97F1D2BF0716D00E9A64E /* ShopsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C97F1C2BF0716D00E9A64E /* ShopsGridView.swift */; };
 		B7D4174A2B52341B002A1C24 /* NavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417492B52341B002A1C24 /* NavigationPath.swift */; };
-		B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417512B527FFA002A1C24 /* PKHUDView.swift */; };
-		B7D417542B5280EB002A1C24 /* PKHUDModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */; };
 		B7D4175B2B5289A2002A1C24 /* CustomAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175A2B5289A2002A1C24 /* CustomAlertModifier.swift */; };
 		B7D4175D2B5289B3002A1C24 /* CustomAlertEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */; };
 		B7D417602B528BE0002A1C24 /* ValidationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */; };
@@ -61,6 +58,7 @@
 		B7F951142BF85C6000AE101A /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951132BF85C6000AE101A /* NavigationModifier.swift */; };
 		B7F9511A2BF85D0A00AE101A /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F951192BF85D0A00AE101A /* NavigationRouter.swift */; };
 		B7F9511C2BF85DB200AE101A /* NavigationExampleTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9511B2BF85DB200AE101A /* NavigationExampleTopView.swift */; };
+		B7FD6E252D7DC7C600BBDD1C /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD6E242D7DC7C200BBDD1C /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,14 +109,11 @@
 		B7C97F032BEF65C500E9A64E /* ShopsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsListView.swift; sourceTree = "<group>"; };
 		B7C97F042BEF65C500E9A64E /* ShopsSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsSearchView.swift; sourceTree = "<group>"; };
 		B7C97F052BEF65C500E9A64E /* FavoriteListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
-		B7C97F112BEF661D00E9A64E /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		B7C97F152BEF66C000E9A64E /* ShopsGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsGridViewController.swift; sourceTree = "<group>"; };
 		B7C97F172BEF66C000E9A64E /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		B7C97F1A2BF0710F00E9A64E /* ShopsGridSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsGridSection.swift; sourceTree = "<group>"; };
 		B7C97F1C2BF0716D00E9A64E /* ShopsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsGridView.swift; sourceTree = "<group>"; };
 		B7D417492B52341B002A1C24 /* NavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPath.swift; sourceTree = "<group>"; };
-		B7D417512B527FFA002A1C24 /* PKHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDView.swift; sourceTree = "<group>"; };
-		B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDModifier.swift; sourceTree = "<group>"; };
 		B7D4175A2B5289A2002A1C24 /* CustomAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertModifier.swift; sourceTree = "<group>"; };
 		B7D4175C2B5289B3002A1C24 /* CustomAlertEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertEntity.swift; sourceTree = "<group>"; };
 		B7D4175F2B528BE0002A1C24 /* ValidationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationInteractor.swift; sourceTree = "<group>"; };
@@ -130,6 +125,7 @@
 		B7F951192BF85D0A00AE101A /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		B7F9511B2BF85DB200AE101A /* NavigationExampleTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExampleTopView.swift; sourceTree = "<group>"; };
 		B7FB28D72D23850C0062FF6A /* FoodsFinderPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FoodsFinderPackage; sourceTree = "<group>"; };
+		B7FD6E242D7DC7C200BBDD1C /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +195,6 @@
 				B7D417482B5233E5002A1C24 /* Navigation */,
 				B7D4175E2B528BC1002A1C24 /* Interactor */,
 				B7D417592B528992002A1C24 /* Alert */,
-				B7D417502B527FE0002A1C24 /* PKHUD */,
 				B7C6325E2B35CE40006B1E4E /* Util */,
 				B78BED242B35C7BF005A05C6 /* Assets.xcassets */,
 				B7B1684E2B369A9200F521D9 /* Info.plist */,
@@ -393,7 +388,7 @@
 		B7C97F102BEF661D00E9A64E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B7C97F112BEF661D00E9A64E /* ViewExtension.swift */,
+				B7FD6E242D7DC7C200BBDD1C /* View+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -413,15 +408,6 @@
 				B7D417492B52341B002A1C24 /* NavigationPath.swift */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		B7D417502B527FE0002A1C24 /* PKHUD */ = {
-			isa = PBXGroup;
-			children = (
-				B7D417512B527FFA002A1C24 /* PKHUDView.swift */,
-				B7D417532B5280EB002A1C24 /* PKHUDModifier.swift */,
-			);
-			path = PKHUD;
 			sourceTree = "<group>";
 		};
 		B7D417592B528992002A1C24 /* Alert */ = {
@@ -623,8 +609,6 @@
 				B7C97EE62BEE3BC300E9A64E /* Extension.swift in Sources */,
 				B7A83CF72C0AD7E600F45C5A /* ThumbnailView.swift in Sources */,
 				B7C97F062BEF65C500E9A64E /* SettingView.swift in Sources */,
-				B7C97F122BEF661D00E9A64E /* ViewExtension.swift in Sources */,
-				B7D417522B527FFA002A1C24 /* PKHUDView.swift in Sources */,
 				B7C97F072BEF65C500E9A64E /* LoginView.swift in Sources */,
 				B7C97F0F2BEF65C500E9A64E /* FavoriteListView.swift in Sources */,
 				B7D4175B2B5289A2002A1C24 /* CustomAlertModifier.swift in Sources */,
@@ -652,8 +636,8 @@
 				B7A83CFA2C0CB48A00F45C5A /* AppleHero.swift in Sources */,
 				B7C97F1B2BF0710F00E9A64E /* ShopsGridSection.swift in Sources */,
 				B7F9511C2BF85DB200AE101A /* NavigationExampleTopView.swift in Sources */,
+				B7FD6E252D7DC7C600BBDD1C /* View+Extension.swift in Sources */,
 				B7C97F182BEF66C000E9A64E /* ShopsGridViewController.swift in Sources */,
-				B7D417542B5280EB002A1C24 /* PKHUDModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

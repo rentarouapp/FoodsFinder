@@ -26,7 +26,8 @@ public struct ShopView: View {
     @FocusState var focus: Bool
     @State private var searchText: String = ""
     
-    let store: StoreOf<ShopsFeature>
+    // iOS17+ターゲットなら`@Bindable`とするだけでOK
+    @Perception.Bindable var store: StoreOf<ShopsFeature>
     
     public var body: some View {
         WithPerceptionTracking {
@@ -68,7 +69,7 @@ public struct ShopView: View {
                 }
             }
             .focused(self.$focus)
-            //.PKHUD(isPresented: store.isFetching, HUDContent: .progress)
+            .PKHUD(isPresented: $store.isFetching, HUDContent: .progress)
         }
     }
 }
