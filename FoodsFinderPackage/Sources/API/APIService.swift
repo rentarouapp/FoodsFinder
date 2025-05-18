@@ -1,8 +1,8 @@
 //
 //  APIService.swift
-//  FoodsFinder
+//  FoodsFinderPackage
 //
-//  Created by 上條蓮太朗 on 2023/12/22.
+//  Created by 上條蓮太朗 on 2025/01/02.
 //
 
 import Foundation
@@ -13,10 +13,10 @@ protocol APIServiceType {
     func requestWithSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType
 }
 
-final class APIService: APIServiceType {
+public final class APIService: APIServiceType {
     
     private let baseURLString: String
-    init(baseURLString: String = "") {
+    public init(baseURLString: String = "") {
         self.baseURLString = baseURLString
     }
     
@@ -35,7 +35,7 @@ final class APIService: APIServiceType {
 // Combine
 extension APIService {
     // https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?keyword=西東京&key=ee6d7b1b10b24aef&format=json
-    func requestWithCombine<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : APIRequestType {
+    public func requestWithCombine<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : APIRequestType {
         guard let request = request.generateURLRequest() else {
             return Fail(error: APIServiceError.invalidRequestError).eraseToAnyPublisher()
         }
@@ -53,7 +53,7 @@ extension APIService {
 
 // Swift Concurrency
 extension APIService {
-    func requestWithSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType {
+    public func requestWithSwiftConcurrency<Request>(with request: Request) async throws -> Request.Response where Request: APIRequestType {
         guard let request = request.generateURLRequest() else {
             throw APIServiceError.invalidRequestError
         }
@@ -72,11 +72,13 @@ extension APIService {
     }
 }
 
-enum APIServiceError: Error {
+public enum APIServiceError: Error {
     case invalidRequestError
     case apiStatusError
     case connectionError(Data)
     case responseError
     case parseError(Error)
 }
+
+
 

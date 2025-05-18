@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Entity
 
-struct ShopItemView: View {
+public struct ShopItemView: View {
     
     var shop: Shop
     
-    var body: some View {
+    public init(shop: Shop) {
+        self.shop = shop
+    }
+    
+    public var body: some View {
         HStack {
             Text("🍺")
                 .font(.system(size: 60, weight: .black, design: .default))

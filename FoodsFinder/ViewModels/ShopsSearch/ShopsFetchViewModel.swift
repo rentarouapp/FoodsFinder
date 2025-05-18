@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 import Reachability
+import Entity
+import API
 
 @MainActor
 final class ShopsFetchViewModel: NSObject, ObservableObject {

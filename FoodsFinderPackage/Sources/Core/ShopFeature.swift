@@ -1,36 +1,43 @@
 //
-//  ShopsFeature.swift
-//  FoodsFinder
+//  ShopFeature.swift
+//  FoodsFinderPackage
 //
-//  Created by 上條蓮太朗 on 2024/12/19.
+//  Created by 上條蓮太朗 on 2024/12/31.
 //
 
 import SwiftUI
 import ComposableArchitecture
+import Entity
+import API
 
 @Reducer
-struct ShopsFeature {
+public struct ShopsFeature {
     @ObservableState
-    struct State: Equatable {
-        var shops = Array<Shop>()
-        var isFetching = false
+    public struct State: Equatable {
+        public var shops = Array<Shop>()
+        public var isFetching = false
+        public init() {}
     }
     
-    enum Action: Equatable {
+    public enum Action: BindableAction, Equatable {
         case fetchShops(String) // キーワードをもらってお店一覧を取る
         case setShops([Shop]) // 取れたお店をStateにセットする
         case resetShops // お店一覧をリセット
+        case binding(BindingAction<State>) // BindingStateの変更Action
     }
     
-    var body: some Reducer<State, Action> {
+    @Dependency(\.apiClient) private var apiClient
+    
+    public init() {}
+    
+    public var body: some Reducer<State, Action> {
+        //BindingReducer()// BindingStateを使うためにこいつが必要
         Reduce { state, action in
             switch action {
             case let .fetchShops(keyword):
                 state.isFetching = true
                 return .run { send in
-                    let apiService = APIService()
-                    let request = ShopInfoRequest(keyword: keyword)
-                    let shops = try await apiService.requestWithSwiftConcurrency(with: request).result?.shops ?? []
+                    let shops = try await apiClient.fetch(with: keyword).result?.shops ?? []
                     await send(
                         .setShops(shops)
                     )
@@ -43,6 +50,9 @@ struct ShopsFeature {
                 
             case .resetShops:
                 state.shops = []
+                return .none
+                
+            case .binding:
                 return .none
             }
         }
