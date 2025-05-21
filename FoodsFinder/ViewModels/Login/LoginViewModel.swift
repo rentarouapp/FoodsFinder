@@ -72,8 +72,8 @@ final class LoginViewModel: ObservableObject {
     /// サインイン
     func signIn(email: String, password: String) {
         loginModel.auth.signIn(withEmail: email, password: password) { [weak self] result, error in
-            guard let self else { return }
-            if let user = result?.user {
+            guard let _ = self else { return }
+            if let _ = result?.user {
                 // ログイン成功
             } else {
                 // ログイン失敗
@@ -85,7 +85,7 @@ final class LoginViewModel: ObservableObject {
     func signOut() {
         do {
             try loginModel.auth.signOut()
-        } catch let signOutError as NSError {
+        } catch {
             // サインアウト失敗
         }
     }
@@ -94,8 +94,8 @@ final class LoginViewModel: ObservableObject {
     func withdrawal(password: String) {
         if let user = loginModel.currentUser() {
             user.delete() { [weak self] error in
-                guard let self else { return }
-                if let error {
+                guard let _ = self else { return }
+                if let _ = error {
                     // 退会失敗
                 } else {
                     // 退会成功
@@ -107,8 +107,8 @@ final class LoginViewModel: ObservableObject {
     /// パスワードのリセット
     func resetPassWord(email: String) {
         loginModel.auth.sendPasswordReset(withEmail: email) { [weak self] error in
-            guard let self else { return }
-            if let error {
+            guard let _ = self else { return }
+            if let _ = error {
                 // パスワードのリセット失敗
             } else {
                 // パスワードのリセット成功

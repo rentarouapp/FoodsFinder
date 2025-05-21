@@ -12,14 +12,16 @@ struct RootView: View {
     @State var isActive : Bool = false
     
     var body: some View {
-        NavigationView {
-            NavigationLink(destination: __RedView(shouldPopToRootView: $isActive), isActive: $isActive) {
-                Text("To Red")
-                    .setContentButton(color: .red)
-            }
-            .isDetailLink(false)
-            .navigationTitle("Root View")
-        }
+        Text("Old Navigation Sample.")
+        // 古い仕組みのNavigationを学ぶためのコードだけど、ワーニング消しをするためOFFっておく
+//        NavigationView {
+//            NavigationLink(destination: __RedView(shouldPopToRootView: $isActive), isActive: $isActive) {
+//                Text("To Red")
+//                    .setContentButton(color: .red)
+//            }
+//            .isDetailLink(false)
+//            .navigationTitle("Root View")
+//        }
     }
 }
 
