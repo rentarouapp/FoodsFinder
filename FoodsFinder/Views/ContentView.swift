@@ -18,13 +18,13 @@ struct ContentView: View {
     
     var body: some View {
         // MARK: - マルチモジュール構成 & TCAを使ってリクエスト等するサンプル
-        ShopWrapView()
+        //ShopWrapView()
         
         // MARK: - CompositionalLayout/DiffableDatasourceのサンプル
         //ShopsGridView()
         
         // MARK: - Combine/Swift Concurrencyのリクエストサンプル
-        //ShopsListView()
+        ShopsListView()
         
         // MARK: - ナビゲーションのサンプル
         //        NavigationExampleTopView()
