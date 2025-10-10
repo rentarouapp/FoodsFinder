@@ -15,9 +15,9 @@ public struct ShopWrapView: View {
     
     public var body: some View {
         ShopView(store: Store(
-            initialState: ShopsFeature.State(),
+            initialState: ShopSearchCore.State(),
             reducer: {
-                ShopsFeature()
+                ShopSearchCore()
         }))
     }
 }
@@ -27,7 +27,7 @@ public struct ShopView: View {
     @State private var searchText: String = ""
     
     // iOS17+ターゲットなら`@Bindable`とするだけでOK
-    @Perception.Bindable var store: StoreOf<ShopsFeature>
+    @Perception.Bindable var store: StoreOf<ShopSearchCore>
     
     public var body: some View {
         WithPerceptionTracking {
@@ -76,8 +76,8 @@ public struct ShopView: View {
 
 #Preview {
     ShopView(store: Store(
-        initialState: ShopsFeature.State(),
+        initialState: ShopSearchCore.State(),
         reducer: {
-            ShopsFeature()
+            ShopSearchCore()
     }))
 }

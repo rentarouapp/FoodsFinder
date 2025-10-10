@@ -11,7 +11,7 @@ import Entity
 import API
 
 @Reducer
-public struct ShopsFeature {
+public struct ShopSearchCore {
     @ObservableState
     public struct State: Equatable {
         public var shops = Array<Shop>()
